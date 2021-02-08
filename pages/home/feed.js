@@ -1,28 +1,68 @@
 import React, { Component } from 'react';
-import { Card, Icon } from 'semantic-ui-react'
 import Layout from '../../components/Layout';
+import Router from '../../routes';
+import { Link } from '../../routes';
+import web3 from '../../ethereum/web3';
+import { Tab, Icon, Button, Card, Image } from 'semantic-ui-react';
 
-class Posts extends Component{
-    render(){
-        const extra = (
-            <a>
-              <Icon name='user' />
-              16 Friends
-            </a>
-          )
 
-        return(
+
+class Feed extends Component {
+    render() {
+        const panes = [
+            {
+              menuItem: 'Feed',
+              render: () => <Tab.Pane attached={false}>
+                    <center>
+                    <Card
+                        image='https://c.ndtvimg.com/2021-02/0msbotuo_joe-root-test-double-century-bcci_625x300_06_February_21.jpg?q=60'
+                        header={<a>@ECB<Icon name='check circle'/></a>}
+                        description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+                        extra={<a><Icon name='user' />16 Friends</a>}
+                    />
+                    <Card
+                        image='https://c.ndtvimg.com/2021-02/0msbotuo_joe-root-test-double-century-bcci_625x300_06_February_21.jpg?q=60'
+                        header={<a>@ECB<Icon name='check circle'/></a>}
+                        description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
+                        extra={<a><Icon name='user' />16 Friends</a>}
+                    />
+
+
+                    <Card>
+                    <Card.Content>
+                    <Card.Header>Daniel</Card.Header>
+                    <Card.Meta>Joined in 2016</Card.Meta>
+                    <Card.Description>
+                        Daniel is a comedian living in Nashville.
+                    </Card.Description>
+                    </Card.Content>
+                    <Card.Content extra>
+                    <a>
+                        <Icon name='user' />
+                        10 Friends
+                    </a>
+                    </Card.Content>
+                </Card>
+
+                    </center>
+              </Tab.Pane>,
+            },
+            {
+              menuItem: 'Verified News',
+              render: () => <Tab.Pane attached={false}>
+              <Button attached='top'>Top</Button>
+
+              </Tab.Pane>,
+            },
+          ];
+        
+        
+        return (
             <Layout>
-            <Card
-                image='https://spider.nitt.edu/images/Members/Arvinth%20Saravanan.jpg'
-                header='Immortal Arvinth'
-                meta='Friend'
-                description='I am sexy and I know it xD.'
-                extra={extra}
-            />
+            <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
             </Layout>
         );
     }
 }
 
-export default Posts;
+export default Feed;

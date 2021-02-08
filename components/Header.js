@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, Menu } from 'semantic-ui-react';
+import { Input, Menu, Icon } from 'semantic-ui-react';
 import { Link } from '../routes';
 
 class Header extends Component {
@@ -11,38 +11,36 @@ class Header extends Component {
         const { activeItem } = this.state;
 
         return (
-            <Menu secondary>
-                    <Link route="/">
-                    <a>
-                    <Menu.Item
-                    name='home'
-                    active={activeItem === 'home'}
-                    onClick={this.handleItemClick}
-                    />
-                    </a>
-                    </Link>
-                    
-                    <Menu.Item
-                    name='messages'
-                    active={activeItem === 'messages'}
-                    onClick={this.handleItemClick}
-                    />
-                    <Menu.Item
-                    name='friends'
-                    active={activeItem === 'friends'}
-                    onClick={this.handleItemClick}
-                    />
-                    <Menu.Menu position='right'>
-                    <Menu.Item>
-                        <Input icon='search' placeholder='Search...' />
-                    </Menu.Item>
-                    <Menu.Item
-                        name='logout'
-                        active={activeItem === 'logout'}
-                        onClick={this.handleItemClick}
-                    />
-                    </Menu.Menu>
-                </Menu>
+             <Menu stackable inverted>
+                
+                <Link route="/home/feed">
+                <a>
+                <Menu.Item
+                name='SPECTRUM'
+                />
+                </a>
+                </Link>
+                
+                <Link route="/">
+                <a>
+                <Menu.Item
+                position='right'
+                name='Sign out'
+                active={activeItem === 'Logout'}
+                onClick={this.handleItemClick}
+                />
+                </a>
+                </Link>
+                <Link route="/home/account">
+                <a>
+                <Menu.Item position='right' active={activeItem === 'Arvinth'}>
+                <Icon name='user'/> Arvinth
+                </Menu.Item>
+                </a>
+                </Link>
+               
+            </Menu>
+           
         );
     }
 }
