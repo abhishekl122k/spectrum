@@ -9,7 +9,7 @@ export default (props) => {
             <Head>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
             </Head>
-            <Header/><br/>
+            <Header style={{position: 'fixed'}}/><br/>
             {props.children}
         </Container>
     );
