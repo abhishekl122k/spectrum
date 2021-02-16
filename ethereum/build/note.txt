@@ -1,1 +1,0 @@
-There will have to be 3 json files in this folder after compiling: spectrum, postFactory, post.

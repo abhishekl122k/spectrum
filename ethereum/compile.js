@@ -1,14 +1,29 @@
+//OM NAMO NARAYANA
 const path = require('path');
-const solc = require('solc');
 const fs = require('fs-extra');
-
+const solc = require('solc');
+ 
 const buildPath = path.resolve(__dirname, 'build');
 fs.removeSync(buildPath);
 
-const spectrumPath = path.resolve(__dirname, 'contracts', 'Spectrum.sol');
-const source = fs.readFileSync(spectrumPath, 'utf8');
-const output = solc.compile(source, 1).contracts;
+const SpectrumPath = path.resolve(__dirname, 'contracts', 'Spectrum.sol');
+const spectrumsol = fs.readFileSync(SpectrumPath, 'UTF-8');
+ 
+var input = {
+    language: 'Solidity',
+    sources: {
+        'Spectrum.sol': {content : spectrumsol}
+    },
+    settings: {
+        outputSelection: {
+            '*': {
+                '*': [ '*' ]
+            }
+        }
+    }
+};
 
+var output = JSON.parse(solc.compile(JSON.stringify(input)));
 fs.ensureDirSync(buildPath);
 
 for (let contract in output) {

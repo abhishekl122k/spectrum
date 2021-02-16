@@ -5,7 +5,7 @@ const compiledFactory = require('./build/postFactory.json');
 
 const provider = new HDWalletProvider(
     'alone ahead plunge pact soda skull lion wall index story board normal',
-    'https://rinkeby.infura.io/v3/c92640a6fb404d95946203bbe4d032de'
+    'https://rinkeby.infura.io/v3/d2aaf60f86b64e8ab349c9cd9da59031'
 );
 const web3 = new Web3(provider);
 
@@ -14,20 +14,14 @@ const deploy = async () => {
 
   console.log('Attempting to deploy from account', accounts[0]);
 
-    const result1 = await new web3.eth.Contract(
+    const result = await new web3.eth.Contract(
         JSON.parse(compiledSpectrum.interface)
         )
         .deploy({ data: compiledSpectrum.bytecode })
         .send({ gas: '1000000', from: accounts[0] });
 
-    const result2 = await new web3.eth.Contract(
-        JSON.parse(compiledFactory.interface)
-        )
-        .deploy({ data: compiledFactory.bytecode })
-        .send({ gas: '1000000', from: accounts[0] });
-
     
 
-  console.log('Spectrum depolyed to ', result1.options.address,' and factory deployed to ', result2.options.address );
+  console.log('Spectrum depolyed to ', result.options.address,' and factory deployed to ', result2.options.address );
 };
 deploy();

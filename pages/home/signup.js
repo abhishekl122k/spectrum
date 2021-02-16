@@ -3,34 +3,52 @@ import React from 'react';
 import { Button, Segment, Grid, Header, Icon, Divider, Search, Image, Form, Message } from 'semantic-ui-react'
 import Home from '../../components/Home';
 import Head from 'next/head';
+import web3 from "../../ethereum/web3";
 
-// const LoadingScreen = () => (
-// <View style={styles.container}>
-//     <Image
-//         style={styles.logo}
-//         source={logo}
-//     />
-// </View>
-// );
-
-// const styles = StyleSheet.create({
-//   container: {
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//   },
-//   logo: {
-//     width: 300,
-//     height: 400,
-//   },
-// });
 
 export class signup extends React.Component {
 	static propTypes = {
 	};
 
+	state={
+		item:{
+			firstname: '',
+			secondname:'',
+			errorMessage:'',
+			loading:false
+		}
+	}
+
 	constructor(props) {
 		super(props);
+		console.log('props:', props);
 	}
+
+	onChange = async event => {
+	  	event.preventDefault();
+	  	let name = event.target.name
+	  	let value = event.target.value;
+
+	  	await this.setState(prevState => ({
+
+	    item: { ...prevState.item, [name]: value }
+	  }))
+
+	}
+
+  onSubmit = async event => {
+    event.preventDefault();
+    console.log('submitting');
+    this.setState({loading:true, errorMessage:''});
+    try{
+    	const accounts = await web3.eth.getAccounts();
+    	console.log('accounts', accounts);
+    }catch (err) {
+    	console.log('error:',err);
+    	this.setState({ errorMessage: err.message });
+    }
+    this.setState({loading:false});
+  };
 
 	render() {
 		return (
@@ -52,14 +70,24 @@ export class signup extends React.Component {
 				        <Grid.Row>
 					        <Grid.Column verticalAlign='middle'>
           						<Segment >
-          							<Form>
+          							<Form onSubmit={this.onSubmit}>
 									    <Form.Field>
-									      <label inverted>First Name</label>
-									      <input placeholder='First Name' />
+									      <label>First Name</label>
+									      <input 
+									      name = 'firstname'
+									      value = {this.state.item.firstname} 
+									      onChange={this.onChange} 
+									      placeholder='First Name' 
+									      />
 									    </Form.Field>
 									    <Form.Field>
 									      <label>Last Name</label>
-									      <input placeholder='Last Name' />
+									      <input 
+									      name = 'lastname'
+									      value = {this.state.item.lastname} 
+									      onChange={this.onChange} 
+									      placeholder='Last Name' 
+									      />
 									    </Form.Field>
 									   
 									    <Button type='submit'>Submit</Button>
