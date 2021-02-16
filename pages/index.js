@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import Layout from '../components/Layout';
 import Home from '../components/Home';
 import Head from 'next/head';
-import Router from '../routes';
+import {Router} from '../routes';
 import { Link } from '../routes';
 import Map from '../components/Map';
 import web3 from '../ethereum/web3';
-import { Button, Segment, Grid, Header, Icon, Divider, Search, Image, Form, Message } from 'semantic-ui-react'
+import { Button, Segment, Grid, Header, Icon, Divider, Search, Image, Form, Message } from 'semantic-ui-react';
 
 class Index extends Component {
 
@@ -20,6 +20,11 @@ class Index extends Component {
     event.preventDefault();
     
     console.log("hello");
+    try{
+      Router.pushRoute('/home/signup');
+    }catch(e){
+      console.log(e.toString());
+    }
     
   };
 
