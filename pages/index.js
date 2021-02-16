@@ -16,22 +16,11 @@ class Index extends Component {
     errorMessage: '',
   };
 
-  onSubmit = async event => {
+  onSub = async event => {
     event.preventDefault();
-
-    this.setState({ loading: true, errorMessage: '' });
-
-    try {
-      const accounts = await web3.eth.getAccounts();
-      
-      // Lots of authentication code code to be entered here
-
-      Router.pushRoute('/home/feed');
-    } catch (err) {
-      this.setState({ errorMessage: err.message });
-    }
-
-    this.setState({ loading: false });
+    
+    console.log("hello");
+    
   };
 
   render() {
@@ -97,20 +86,7 @@ class Index extends Component {
               </Grid.Column>
               <Grid.Column>
                 <Segment inverted>
-                <Form onSubmit={this.onSubmit} error floated='right' error={!!this.state.errorMessage}>
-                <Form.Group>
-                  <Form.Input
-                    placeholder='  Your Name'
-                    name='name'
-                    value={this.state.name}
-                    onChange={ event => this.setState({ name: event.target.value })}
-                  />
-                  <Message error header="Oops!" content={this.state.errorMessage} />
-                  <Form.Button content='Sign up' inverted color='red' floated="right" loading={this.state.loading}/>
-                </Form.Group>
-              </Form>
-
-                  
+                  <Button onClick={this.onSub} content='Sign up' inverted color='red' floated="right" loading={this.state.loading}/>  
                 </Segment>
               </Grid.Column>
             </Grid.Row>
