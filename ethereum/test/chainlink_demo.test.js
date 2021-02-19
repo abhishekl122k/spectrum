@@ -1,3 +1,4 @@
 //OM NAMO NARAYANA
 
-const chainlink = artifacts.require('chainlink_demo');
+const chainlink = artifacts.require('ChainlinkDemo');
+const c

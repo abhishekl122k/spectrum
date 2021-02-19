@@ -1,6 +1,8 @@
 //OM NAMO NARAYANA
-var chainLinkDemo = artifacts.require("chainlink_demo");
+var chainLinkDemo = artifacts.require("ChainlinkDemo");
+var ApiConsumer = artifacts.require("APIConsumer");
 
-module.export = function(deployer){
+module.exports = function(deployer){
     deployer.deploy(chainLinkDemo);
+    deployer.deploy(ApiConsumer);
 };
