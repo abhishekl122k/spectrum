@@ -7,12 +7,14 @@ const buildPath = path.resolve(__dirname, 'build');
 fs.removeSync(buildPath);
 
 const SpectrumPath = path.resolve(__dirname, 'contracts', 'Spectrum.sol');
+const AggregatorV3InterfacePath = path.resolve(__dirname, '')
+
 const spectrumsol = fs.readFileSync(SpectrumPath, 'UTF-8');
  
 var input = {
     language: 'Solidity',
     sources: {
-        'Spectrum.sol': {content : spectrumsol}
+        'Spectrum.sol': {content : spectrumsol},
     },
     settings: {
         outputSelection: {
