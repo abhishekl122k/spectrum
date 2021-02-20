@@ -1,7 +1,8 @@
 //OM NAMO NARAYANA
-var chainLinkDemo = artifacts.require("ChainlinkDemo");
+var PriceConsumer = artifacts.require("PriceConsumerV3");
 var ApiConsumer = artifacts.require("APIConsumer");
 
 module.exports = function(deployer){
     deployer.deploy(ApiConsumer);
+    deployer.deploy(PriceConsumer);
 };
