@@ -30,6 +30,11 @@ contract APIConsumer is ChainlinkClient {
         jobId = "29fa9aa13bf1468788b7cc4a500a45b8";
         fee = 0.1 * 10 ** 18; // 0.1 LINK
     }
+
+    function dummyFunction() pure public returns (int dummy){
+        dummy = 1;
+        return dummy;
+    }
     
     /**
      * Create a Chainlink request to retrieve API response, find the target
