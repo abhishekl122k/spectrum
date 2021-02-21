@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { Form, Input, Message, Button, Card, Icon } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import web3 from '../../ethereum/web3';
-import { Link } from '../../routes';
+// import { Link } from '../../routes';
+import Router from '../../routes';
+import factory from '../../ethereum/factory';
+import Post from '../../ethereum/post';
 
 class PredictForm extends Component {
 
@@ -15,19 +18,21 @@ class PredictForm extends Component {
 
     //Write 1 function: onSubmit
 
-    /* Kickstarter Model code:
+    // /* Kickstarter Model code:
     onSubmit = async (event) => {
         event.preventDefault();
 
         this.setState({ loading: true, errorMessage: '' });
 
-        const campaign = Campaign(this.props.address);
         try {
             const accounts = await web3.eth.getAccounts();
-            await campaign.methods.contribute().send({
+            let deployedPosts = await factory.methods.getDeployedPosts().call();
+            console.log("deployed posts:", deployedPosts);
+            let createPostResult = await factory.methods.createPost().send({
               from: accounts[0],
-              value: web3.utils.toWei(this.state.value, 'ether')
+              value: web3.utils.toWei("0.001", 'ether')
             });
+            console.log(createPostResult);
             
             Router.replaceRoute(`/campaigns/${this.props.address}`);
         } catch(err) {
@@ -36,7 +41,7 @@ class PredictForm extends Component {
 
         this.setState({ loading: false, value: '' })
     };
-    */
+    // */
 
     render () {
         return (

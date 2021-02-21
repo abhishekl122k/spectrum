@@ -4,3 +4,6 @@
 
 # next.js
 /.next/
+
+#credentials
+/ethereum/secrets.json

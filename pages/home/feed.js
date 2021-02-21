@@ -4,6 +4,7 @@ import { Card, Button, Icon } from 'semantic-ui-react';
 import Factory from '../../ethereum/factory';
 import Layout from '../../components/Layout';
 import { Link } from '../../routes';
+import Post from '../../ethereum/post';
 
 
 
@@ -16,18 +17,36 @@ class PostIndex extends Component {
     console.log('hello');
     console.log(spectrum);
 
+    var posts = [];
+    for(var i = 0; i < spectrum.length; i=i+1){
+      let post = await Post(spectrum[i]).methods.getSummary().call();
+      console.log('posts \n\n', post);
+      posts.push({
+        address: post[0],
+        name: post[1],
+        content: post[2],
+        yayprice: post[3],
+        nayprice: post[4],
+        pool: post[3] + post[4],
+        yaycount: post[5],
+        naycount: post[6],
+        completed: post[7],
+        verdict: post[8]
+      })
+    }
+
     //This is what contract data should look like:
-    const posts = [{
-        address: '0x123',
-        name: 'ElonMusk',
-        content: 'Bitcoin price to cross $50,000 on Feb 26th.',
-        yayprice: '0.01',
-        nayprice: '0.01',
-        pool: '26,234,231.12',
-        completed: false,
-        verdict: true
-    },
-    {   
+    // const posts = [{
+    //     address: '0x123',
+    //     name: 'ElonMusk',
+    //     content: 'Bitcoin price to cross $50,000 on Feb 26th.',
+    //     yayprice: '0.01',
+    //     nayprice: '0.01',
+    //     pool: '26,234,231.12',
+    //     completed: false,
+    //     verdict: true
+    // },
+    posts.push({   
         address: '0x456',
         name: 'Arvinth',
         content: 'Projected winner of 2021 elections: BJP',
@@ -36,18 +55,7 @@ class PostIndex extends Component {
         pool: '24,223.43',
         completed: true,
         verdict: true
-    },
-    {   
-        address: '0x789',
-        name: 'Abhishek',
-        content: 'Projected winner of 2021 elections: INC',
-        yayprice: '0.005',
-        nayprice: '0.015',
-        pool: '24,223,213.43',
-        completed: true,
-        verdict: false
-    }
-    ];
+    });
     return { posts };
   }
 

@@ -9,10 +9,10 @@ class PredictForm extends Component {
 
   static async getInitialProps(props) {
       //Kickstarter model code:
-      const post = Post(props.query.address);
+      const post = await Post(props.query.address);
       //const campaign = Campaign(props.query.address);
 
-      summary = await post.methods.getSummary().call(); 
+      var summary = await post.methods.getSummary().call(); 
       
       return  {
         address: summary[0],
@@ -21,8 +21,8 @@ class PredictForm extends Component {
         yayprice: summary[3],
         nayprice: summary[4],
         pool: summary[5],
-        yaycount: summary[6],
-        naycount: summary[7],
+        yaycount: summary[5],
+        naycount: summary[6],
       };
 
       // return  {
