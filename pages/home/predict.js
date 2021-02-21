@@ -3,7 +3,9 @@ import { Form, Input, Message, Button, Card, Icon } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import Post from '../../ethereum/post';
 import web3 from '../../ethereum/web3';
-import { Link } from '../../routes';
+// import { Link } from '../../routes';
+import Router from '../../routes';
+
 
 class PredictForm extends Component {
 
@@ -47,28 +49,45 @@ class PredictForm extends Component {
 
     //Write 2 function: onSubmitYes and onSubmitNo
 
-    /* Kickstarter Model code:
-    onSubmit = async (event) => {
+    // /* Kickstarter Model code:
+    onSubmitYes = async (event) => {
         event.preventDefault();
 
         this.setState({ loading: true, errorMessage: '' });
 
-        const campaign = Campaign(this.props.address);
+        const post = await Post(this.props.address);
         try {
             const accounts = await web3.eth.getAccounts();
-            await campaign.methods.contribute().send({
+            await post.methods.voteYay().send({
               from: accounts[0],
-              value: web3.utils.toWei(this.state.value, 'ether')
+              value: web3.utils.toWei(this.props.yayprice + 0.00001, 'ether')
             });
-            
-            Router.replaceRoute(`/campaigns/${this.props.address}`);
         } catch(err) {
             this.setState({ errorMessage: err.message });
         }
 
         this.setState({ loading: false, value: '' })
     };
-    */
+
+    onSubmitNo = async (event) => {
+      event.preventDefault();
+
+      this.setState({ loading: true, errorMessage: '' });
+
+      const post = await Post(this.props.address);
+      try {
+          const accounts = await web3.eth.getAccounts();
+          await post.methods.voteYay().send({
+            from: accounts[0],
+            value: web3.utils.toWei(this.props.nayprice + 0.001, 'ether')
+          });
+      } catch(err) {
+          this.setState({ errorMessage: err.message });
+      }
+
+      this.setState({ loading: false, value: '' })
+  };
+    // */
 
     render () {
         return (
