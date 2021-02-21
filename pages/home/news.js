@@ -4,13 +4,10 @@ import { Card, Button, Icon } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import { Link } from '../../routes';
 
-
-
 class PostIndex extends Component {
-
   static async getInitialProps() {
     //const campaigns = await factory.methods.getDeployedPosts().call();
-
+    
     //This is what contract data should look like:
     const posts = [{
         address: '0x123',
@@ -46,58 +43,45 @@ class PostIndex extends Component {
     return { posts };
   }
 
-  renderButton(completed, verdict, address) {
-    if(completed==false){
+  renderButton(verdict) {
+    if(verdict==true){
         return (
-                <Link route={`/home/predict/${address}`}>
-                    <a><Button positive>$ Predict</Button></a>
-                </Link>
+            <Button disabled color='green'><Icon  name='check circle' />Verified Yes</Button>
         );
     }else{
-        if(verdict==true){
-            return (
-                <Button  disabled color='green'><Icon  name='check circle' />Verified Yes</Button>
-            );
-        }else{
-            return (
-                <Button disabled color='red'><Icon  name='check circle' />Verified No</Button>
-            );
-        }
-    }   
+        return (
+            <Button disabled color='red'><Icon  name='check circle' />Verified No</Button>
+        );
+    }
   }
 
   renderCampaigns() {
     const items = this.props.posts.map(post => {
-      if(true){
+      if(post.completed){
         return {
             header: (
-                <h3>
+                <h4>
                     @{post.name}
-                </h3>
+                </h4>
             ),
             description: (
-                <strong>{post.content}</strong>
-            ),
+              <h3><strong>{post.content}</strong></h3>
+             ),
             extra: (
                 <div>
-                <div className='ui two buttons'>
-                <Button size='mini' disabled basic color='green'>
-                    Yes: {post.yayprice} ETH
-                </Button>
-                <Button size='mini' disabled basic color='red'>
-                    No: {post.nayprice} ETH
-                </Button>
-                </div>
-                <br/>
-                <br/>
-                {this.renderButton(post.completed, post.verdict, post.address)}
-                <br/>
-                <br/>
-                    <Button disabled size='mini'>Pool: {post.pool} ETH</Button>
-                       
+                <Button.Group>
+                    <Button disabled >Pool: {post.pool} ETH</Button>
+                    <Button.Or text='  ' />
+                    
+                        
+                        {this.renderButton(post.verdict)}
+                        
+                    
+                </Button.Group>
+                            
               </div>
             ),
-                
+            fluid: true,    
           };
       }
       else{
@@ -113,9 +97,8 @@ class PostIndex extends Component {
     return (
       <Layout>
         <div>
-          <h3>News Market <Icon  name='newspaper' /></h3>
+          <h3>Verified News<Icon  name='check circle' /></h3>
 
-         
           {this.renderCampaigns()}
         </div>
       </Layout>

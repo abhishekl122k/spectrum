@@ -1,48 +1,33 @@
-import React, { Component } from 'react';
-import { Input, Menu, Icon } from 'semantic-ui-react';
+import React from 'react';
+import { Menu, Icon } from 'semantic-ui-react';
 import { Link } from '../routes';
 
-class Header extends Component {
-    state = { activeItem: 'home' };
+export default () => {
+  return (
+    <Menu inverted style={{ marginTop: '10px' }}>
+      <Link route="/home/feed">
+        <a className="item"><strong>SPECTRUM</strong></a>
+      </Link>
 
-    handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+      <Menu.Menu position="right">
+        
+        <Link route="/home/feed">
+          <a className="item"><Icon  name='newspaper' />News Market</a>
+        </Link>
 
-    render() {
-        const { activeItem } = this.state;
+        <Link route="/home/news">
+          <a className="item"> <Icon  name='check circle' />Verified News</a>
+        </Link>
 
-        return (
-             <Menu stackable inverted>
-                
-                <Link route="/home/feed">
-                <a>
-                <Menu.Item
-                name='SPECTRUM'
-                />
-                </a>
-                </Link>
-                
-                <Link route="/">
-                <a>
-                <Menu.Item
-                position='right'
-                name='Sign out'
-                active={activeItem === 'Logout'}
-                onClick={this.handleItemClick}
-                />
-                </a>
-                </Link>
-                <Link route="/home/account">
-                <a>
-                <Menu.Item position='right' active={activeItem === 'Arvinth'}>
-                <Icon name='user'/> Arvinth
-                </Menu.Item>
-                </a>
-                </Link>
-               
-            </Menu>
-           
-        );
-    }
-}
 
-export default Header;
+        <Link route="/home/newpost">
+          <a className="item"><Icon  name='plus circle' />New Post</a>
+        </Link>
+
+        <Link route="/">
+          <a className="item"><Icon  name='lock' />Log out</a>
+        </Link>
+      </Menu.Menu>
+    </Menu>
+  );
+};
