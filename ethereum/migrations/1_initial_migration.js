@@ -1,7 +1,5 @@
-const ApiConsumer = artifacts.require('APIConsumer');
-const PriceConsumer = artifacts.require('PriceConsumerV3');
+const Migrations = artifacts.require('Migrations');
 
 module.exports = function (deployer) {
-  deployer.deploy(ApiConsumer);
-  deployer.deploy(PriceConsumer);
+  deployer.deploy(Migrations);
 };

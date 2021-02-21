@@ -32,14 +32,14 @@
     "absolutePath": "@chainlink/contracts/src/v0.6/vendor/ENSResolver.sol",
     "exportedSymbols": {
       "ENSResolver": [
-        2012
+        2461
       ]
     },
-    "id": 2013,
+    "id": 2462,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2004,
+        "id": 2453,
         "literals": [
           "solidity",
           "^",
@@ -47,7 +47,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:23:11"
+        "src": "32:23:13"
       },
       {
         "abstract": true,
@@ -56,9 +56,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 2012,
+        "id": 2461,
         "linearizedBaseContracts": [
-          2012
+          2461
         ],
         "name": "ENSResolver",
         "nodeType": "ContractDefinition",
@@ -67,7 +67,7 @@
             "body": null,
             "documentation": null,
             "functionSelector": "3b3b57de",
-            "id": 2011,
+            "id": 2460,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -75,17 +75,17 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 2007,
+              "id": 2456,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2006,
+                  "id": 2455,
                   "name": "node",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 2011,
-                  "src": "105:12:11",
+                  "scope": 2460,
+                  "src": "105:12:13",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -93,10 +93,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 2005,
+                    "id": 2454,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "105:7:11",
+                    "src": "105:7:13",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -106,20 +106,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "104:14:11"
+              "src": "104:14:13"
             },
             "returnParameters": {
-              "id": 2010,
+              "id": 2459,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 2009,
+                  "id": 2458,
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 2011,
-                  "src": "148:7:11",
+                  "scope": 2460,
+                  "src": "148:7:13",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -127,10 +127,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 2008,
+                    "id": 2457,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "148:7:11",
+                    "src": "148:7:13",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -141,27 +141,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "147:9:11"
+              "src": "147:9:13"
             },
-            "scope": 2012,
-            "src": "91:66:11",
+            "scope": 2461,
+            "src": "91:66:13",
             "stateMutability": "view",
             "virtual": true,
             "visibility": "public"
           }
         ],
-        "scope": 2013,
-        "src": "57:102:11"
+        "scope": 2462,
+        "src": "57:102:13"
       }
     ],
-    "src": "32:128:11"
+    "src": "32:128:13"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "@chainlink/contracts/src/v0.6/vendor/ENSResolver.sol",
       "exportedSymbols": {
         "ENSResolver": [
-          2012
+          2461
         ]
       }
     },
@@ -175,9 +175,9 @@
             ".0"
           ]
         },
-        "id": 2004,
+        "id": 2453,
         "name": "PragmaDirective",
-        "src": "32:23:11"
+        "src": "32:23:13"
       },
       {
         "attributes": {
@@ -192,10 +192,10 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            2012
+            2461
           ],
           "name": "ENSResolver",
-          "scope": 2013
+          "scope": 2462
         },
         "children": [
           {
@@ -211,7 +211,7 @@
               ],
               "name": "addr",
               "overrides": null,
-              "scope": 2012,
+              "scope": 2461,
               "stateMutability": "view",
               "virtual": true,
               "visibility": "public"
@@ -224,7 +224,7 @@
                       "constant": false,
                       "name": "node",
                       "overrides": null,
-                      "scope": 2011,
+                      "scope": 2460,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bytes32",
@@ -237,19 +237,19 @@
                           "name": "bytes32",
                           "type": "bytes32"
                         },
-                        "id": 2005,
+                        "id": 2454,
                         "name": "ElementaryTypeName",
-                        "src": "105:7:11"
+                        "src": "105:7:13"
                       }
                     ],
-                    "id": 2006,
+                    "id": 2455,
                     "name": "VariableDeclaration",
-                    "src": "105:12:11"
+                    "src": "105:12:13"
                   }
                 ],
-                "id": 2007,
+                "id": 2456,
                 "name": "ParameterList",
-                "src": "104:14:11"
+                "src": "104:14:13"
               },
               {
                 "children": [
@@ -258,7 +258,7 @@
                       "constant": false,
                       "name": "",
                       "overrides": null,
-                      "scope": 2011,
+                      "scope": 2460,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -272,34 +272,34 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 2008,
+                        "id": 2457,
                         "name": "ElementaryTypeName",
-                        "src": "148:7:11"
+                        "src": "148:7:13"
                       }
                     ],
-                    "id": 2009,
+                    "id": 2458,
                     "name": "VariableDeclaration",
-                    "src": "148:7:11"
+                    "src": "148:7:13"
                   }
                 ],
-                "id": 2010,
+                "id": 2459,
                 "name": "ParameterList",
-                "src": "147:9:11"
+                "src": "147:9:13"
               }
             ],
-            "id": 2011,
+            "id": 2460,
             "name": "FunctionDefinition",
-            "src": "91:66:11"
+            "src": "91:66:13"
           }
         ],
-        "id": 2012,
+        "id": 2461,
         "name": "ContractDefinition",
-        "src": "57:102:11"
+        "src": "57:102:13"
       }
     ],
-    "id": 2013,
+    "id": 2462,
     "name": "SourceUnit",
-    "src": "32:128:11"
+    "src": "32:128:13"
   },
   "compiler": {
     "name": "solc",
@@ -307,7 +307,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-02-20T11:31:38.432Z",
+  "updatedAt": "2021-02-21T05:40:30.109Z",
   "devdoc": {
     "methods": {}
   },
