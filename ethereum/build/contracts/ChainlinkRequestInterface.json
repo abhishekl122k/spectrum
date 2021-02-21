@@ -84,7 +84,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.6.0;\n\ninterface ChainlinkRequestInterface {\n  function oracleRequest(\n    address sender,\n    uint256 requestPrice,\n    bytes32 serviceAgreementID,\n    address callbackAddress,\n    bytes4 callbackFunctionId,\n    uint256 nonce,\n    uint256 dataVersion,\n    bytes calldata data\n  ) external;\n\n  function cancelOracleRequest(\n    bytes32 requestId,\n    uint256 payment,\n    bytes4 callbackFunctionId,\n    uint256 expiration\n  ) external;\n}\n",
-  "sourcePath": "@chainlink/contracts/src/v0.6/interfaces/ChainlinkRequestInterface.sol",
+  "sourcePath": "@chainlink\\contracts\\src\\v0.6\\interfaces\\ChainlinkRequestInterface.sol",
   "ast": {
     "absolutePath": "@chainlink/contracts/src/v0.6/interfaces/ChainlinkRequestInterface.sol",
     "exportedSymbols": {
@@ -981,7 +981,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-02-21T07:18:38.688Z",
+  "updatedAt": "2021-02-21T07:38:37.313Z",
   "devdoc": {
     "methods": {}
   },

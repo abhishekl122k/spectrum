@@ -19,23 +19,23 @@ class PostIndex extends Component {
         yayprice: '0.01',
         nayprice: '0.01',
         pool: '26,234,231.12',
-        completed: true,
+        completed: false,
         verdict: true
     },
     {   
         address: '0x456',
         name: 'Arvinth',
-        content: 'Projected winner of TN elections: DMK',
+        content: 'Projected winner of 2021 elections: BJP',
         yayprice: '0.005',
         nayprice: '0.015',
         pool: '24,223.43',
-        completed: false,
+        completed: true,
         verdict: true
     },
     {   
         address: '0x789',
         name: 'Abhishek',
-        content: 'Projected winner of TN elections: BJP',
+        content: 'Projected winner of 2021 elections: INC',
         yayprice: '0.005',
         nayprice: '0.015',
         pool: '24,223,213.43',
