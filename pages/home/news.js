@@ -3,13 +3,37 @@ import { Card, Button, Icon } from 'semantic-ui-react';
 //import factory from '../../ethereum/factory';
 import Layout from '../../components/Layout';
 import { Link } from '../../routes';
+import Post from '../../ethereum/post';
+import Factory from '../../ethereum/factory';
+
 
 class PostIndex extends Component {
   static async getInitialProps() {
     //const campaigns = await factory.methods.getDeployedPosts().call();
+
+    const spectrum = await Factory.methods.getDeployedPosts().call();
     
     //This is what contract data should look like:
-    const posts = [{
+
+    var posts = [];
+    for(var i = 0; i < spectrum.length; i=i+1){
+      let post = await Post(spectrum[i]).methods.getSummary().call();
+      console.log('posts \n\n', post);
+      posts.push({
+        address: post[0],
+        name: post[1],
+        content: post[2],
+        yayprice: post[3],
+        nayprice: post[4],
+        pool: post[3] + post[4],
+        yaycount: post[5],
+        naycount: post[6],
+        completed: post[7],
+        verdict: post[8]
+      })
+    }
+
+  posts.push({
         address: '0x123',
         name: 'ElonMusk',
         content: 'Bitcoin price to cross $50,000 on Feb 26th.',
@@ -18,28 +42,7 @@ class PostIndex extends Component {
         pool: '26,234,231.12',
         completed: true,
         verdict: true
-    },
-    {   
-        address: '0x456',
-        name: 'Arvinth',
-        content: 'Projected winner of TN elections: DMK',
-        yayprice: '0.005',
-        nayprice: '0.015',
-        pool: '24,223.43',
-        completed: false,
-        verdict: true
-    },
-    {   
-        address: '0x789',
-        name: 'Abhishek',
-        content: 'Projected winner of TN elections: BJP',
-        yayprice: '0.005',
-        nayprice: '0.015',
-        pool: '24,223,213.43',
-        completed: true,
-        verdict: false
-    }
-    ];
+    });
     return { posts };
   }
 

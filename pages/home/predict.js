@@ -60,13 +60,14 @@ class PredictForm extends Component {
             const accounts = await web3.eth.getAccounts();
             await post.methods.voteYay().send({
               from: accounts[0],
-              value: web3.utils.toWei(this.props.yayprice + 0.00001, 'ether')
+              value: web3.utils.toWei(this.props.yayprice + 0.01, 'ether')
             });
+            Router.replaceRoute(`/home/feed`);
+
         } catch(err) {
             this.setState({ errorMessage: err.message });
         }
-
-        this.setState({ loading: false, value: '' })
+        this.setState({ loading: false, value: '' });
     };
 
     onSubmitNo = async (event) => {
