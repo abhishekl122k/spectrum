@@ -5,26 +5,28 @@ contract Spectrum{
 
     address[] public deployedPosts;
     string content;
+    string name;
     
     
     //Pass post content and alias name as string. How??
     
-    function createPost() public returns (uint ){
-        Post newPost = new Post(msg.sender, content);
+    function createPost() public returns (address[] memory){
+        Post newPost = new Post(msg.sender, content, name);
         deployedPosts.push(address(newPost));
-        return deployedPosts.length;
+        return deployedPosts;
     }
 
-    function getDeployedPosts() public view returns (uint){
-        return deployedPosts.length;
+    function getDeployedPosts() public view returns (address[] memory){
+        return deployedPosts;
     }
 
-    function returnContent() public view returns (string memory){
-        return content;
-    }
+    // function returnName() public view returns(string memory){
+    //     return name;
+    // }
 
-    constructor()public{
-        content = "OM";
+    constructor(string memory content_init, string memory name_init)public{
+        content = content_init;
+        name = name_init;
     }
 }
 
@@ -114,9 +116,14 @@ contract Post{
             updateCost();
         }       
     }
+
+    function getSummary() public view returns (address, string memory, string memory, uint, uint, uint, uint, bool, bool){
+        return(address(this), name, content, yayprice, nayprice, yaycount, naycount, completed, verdict);
+    }
     
     
-    constructor(address manager_init,string memory content_init) public {
+    constructor(address manager_init, string memory content_init, string memory name_init) public {
+        name = name_init;
         manager = manager_init;
         tempAddress = manager;
         content = content_init;

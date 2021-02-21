@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, Input, Message, Button, Card, Icon } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
+import Post from '../../ethereum/post';
 import web3 from '../../ethereum/web3';
 import { Link } from '../../routes';
 
@@ -8,20 +9,32 @@ class PredictForm extends Component {
 
   static async getInitialProps(props) {
       //Kickstarter model code:
+      const post = Post(props.query.address);
       //const campaign = Campaign(props.query.address);
 
-      //const summary = await campaign.methods.getSummary().call(); 
+      summary = await post.methods.getSummary().call(); 
       
       return  {
-        address: '0x123',
-        name: 'ElonMusk',
-        content: 'Bitcoin price to cross $50,000 on Feb 26th.',
-        yayprice: '0.01',
-        nayprice: '0.01',
-        pool: '26,234,231.12',
-        yaycount: '202,312',
-        naycount: '121,332',
+        address: summary[0],
+        name: summary[1],
+        content: summary[2],
+        yayprice: summary[3],
+        nayprice: summary[4],
+        pool: summary[5],
+        yaycount: summary[6],
+        naycount: summary[7],
       };
+
+      // return  {
+      //   address: '0x123',
+      //   name: 'ElonMusk',
+      //   content: 'Bitcoin price to cross $50,000 on Feb 26th.',
+      //   yayprice: '0.01',
+      //   nayprice: '0.01',
+      //   pool: '26,234,231.12',
+      //   yaycount: '202,312',
+      //   naycount: '121,332',
+      // };
     }
 
     state = {

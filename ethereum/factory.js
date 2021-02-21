@@ -1,9 +1,22 @@
 //OM NAMO NARAYANA
 import web3 from './web3';
-import Spectrum from './Spectrum.json';
+import Spectrum from './build/contracts/Spectrum.json';
 
-return new web3.eth.Contract(
-	JSON.parse(Spectrum.interface),
+const instance = new web3.eth.Contract(
+	Spectrum.abi,
 	//address of spectrum here
-	'0x1aA5726407E0C47915Fbd42a7951Fe268f550B49'
+	'0x8910c6B05F1A48D9F8AFD9A5884ED6a8cBF3D7d5'
 	);
+	
+console.log(instance);
+
+export default instance;
+
+
+// export default () => {
+// 	return new web3.eth.Contract(
+// 		JSON.parse(Spectrum.abi),
+// 		//address of spectrum here
+// 		'0x8910c6B05F1A48D9F8AFD9A5884ED6a8cBF3D7d5'
+// 	);
+// };

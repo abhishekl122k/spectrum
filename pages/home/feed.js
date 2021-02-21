@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Button, Icon } from 'semantic-ui-react';
 //import factory from '../../ethereum/factory';
+import Factory from '../../ethereum/factory';
 import Layout from '../../components/Layout';
 import { Link } from '../../routes';
 
@@ -10,6 +11,10 @@ class PostIndex extends Component {
 
   static async getInitialProps() {
     //const campaigns = await factory.methods.getDeployedPosts().call();
+    const spectrum = await Factory.methods.getDeployedPosts().call();
+
+    console.log('hello');
+    console.log(spectrum);
 
     //This is what contract data should look like:
     const posts = [{
