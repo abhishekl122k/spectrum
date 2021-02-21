@@ -4,13 +4,10 @@ pragma solidity ^0.6.0;
 contract Spectrum{
 
     address[] public deployedPosts;
-    string content;
-    string name;
-    
     
     //Pass post content and alias name as string. How??
     
-    function createPost() public returns (address[] memory){
+    function createPost(string memory content, string memory name) public returns (address[] memory){
         Post newPost = new Post(msg.sender, content, name);
         deployedPosts.push(address(newPost));
         return deployedPosts;
@@ -24,10 +21,10 @@ contract Spectrum{
     //     return name;
     // }
 
-    constructor(string memory content_init, string memory name_init)public{
-        content = content_init;
-        name = name_init;
-    }
+    // constructor(string memory content_init, string memory name_init)public{
+    //     content = content_init;
+    //     name = name_init;
+    // }
 }
 
 contract Post{
@@ -39,7 +36,7 @@ contract Post{
     string public name;
     string public content;
     
-    uint public total = 2;
+    uint public total = 2000;
     uint public yayprice;
     uint public nayprice;
     uint public yaycount = 0;
@@ -90,8 +87,8 @@ contract Post{
         	if(yays[msg.sender]==0 && nays[msg.sender]==0){
           	    voted.push(msg.sender);
         	}
-            require(msg.value>=yayprice);
-            require(yays[msg.sender]<=3);
+            //require(msg.value>=yayprice);
+            //require(yays[msg.sender]<=3);
 
             yays[msg.sender]++;
             yaycount++;
@@ -118,7 +115,7 @@ contract Post{
     }
 
     function getSummary() public view returns (address, string memory, string memory, uint, uint, uint, uint, bool, bool){
-        return(address(this), name, content, yayprice, nayprice, yaycount, naycount, completed, verdict);
+        return(address, name, content, yayprice, nayprice, yaycount, naycount, completed, verdict);
     }
     
     
