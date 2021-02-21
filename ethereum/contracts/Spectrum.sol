@@ -115,7 +115,7 @@ contract Post{
     }
 
     function getSummary() public view returns (address, string memory, string memory, uint, uint, uint, uint, bool, bool){
-        return(address, name, content, yayprice, nayprice, yaycount, naycount, completed, verdict);
+        return(address(this), name, content, yayprice, nayprice, yaycount, naycount, completed, verdict);
     }
     
     
