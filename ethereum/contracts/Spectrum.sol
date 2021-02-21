@@ -1,7 +1,7 @@
 pragma solidity ^0.6.0;
 
 
-contract PostFactory{
+contract Spectrum{
 
     address[] public deployedPosts;
     string content;
@@ -9,13 +9,18 @@ contract PostFactory{
     
     //Pass post content and alias name as string. How??
     
-    function createPost() public {
+    function createPost() public returns (uint ){
         Post newPost = new Post(msg.sender, content);
         deployedPosts.push(address(newPost));
+        return deployedPosts.length;
     }
-    
-    function getDeployedPosts() public view returns (address[] memory){
-        return deployedPosts;
+
+    function getDeployedPosts() public view returns (uint){
+        return deployedPosts.length;
+    }
+
+    function returnContent() public view returns (string memory){
+        return content;
     }
 
     constructor()public{

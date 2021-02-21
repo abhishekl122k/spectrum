@@ -17,7 +17,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.6.0+commit.26b70077\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"getLatestPrice\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{\"constructor\":\"Network: Kovan Aggregator: ETH/USD Address: 0x9326BFA02ADD2366b30bacB125260Af641031331\",\"getLatestPrice()\":{\"notice\":\"Returns the latest price\"}}}},\"settings\":{\"compilationTarget\":{\"/home/arvinth/projects/blockchain/spectrum/ethereum/contracts/PriceConsumerV3.sol\":\"PriceConsumerV3\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/arvinth/projects/blockchain/spectrum/ethereum/contracts/PriceConsumerV3.sol\":{\"keccak256\":\"0xad18afce03f95f52546da415a965b5019cab9e09302609dd8ede768715a2a4f7\",\"urls\":[\"bzz-raw://d690e512a9d1fc4aa8aefbeaafa4b3188cc348f7e4cfc9be07343a1c8a512337\",\"dweb:/ipfs/QmVkVqp48q9eRc2CVCUCsa6t5Lm1unpSz2YerKrDVADQBy\"]},\"@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol\":{\"keccak256\":\"0x1862840d741dedb36e774534b877a13b5187555e3b78b8d2815f898b0dc02268\",\"urls\":[\"bzz-raw://64a15f4349aea6e60703f581a6280b71d6adb35ee74d2f3c4f130a2adc3efee3\",\"dweb:/ipfs/QmdVoSQvGfJNPnjQsAs7ZN3ueWghzTa72jSqzhGiQNDpkL\"]}},\"version\":1}",
@@ -54,7 +55,7 @@
         "id": 185,
         "nodeType": "ImportDirective",
         "scope": 221,
-        "sourceUnit": 1350,
+        "sourceUnit": 1363,
         "src": "25:76:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -84,7 +85,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_AggregatorV3Interface_$1349",
+              "typeIdentifier": "t_contract$_AggregatorV3Interface_$1362",
               "typeString": "contract AggregatorV3Interface"
             },
             "typeName": {
@@ -92,10 +93,10 @@
               "id": 186,
               "name": "AggregatorV3Interface",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1349,
+              "referencedDeclaration": 1362,
               "src": "135:21:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_AggregatorV3Interface_$1349",
+                "typeIdentifier": "t_contract$_AggregatorV3Interface_$1362",
                 "typeString": "contract AggregatorV3Interface"
               }
             },
@@ -125,7 +126,7 @@
                       "referencedDeclaration": 187,
                       "src": "337:9:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_AggregatorV3Interface_$1349",
+                        "typeIdentifier": "t_contract$_AggregatorV3Interface_$1362",
                         "typeString": "contract AggregatorV3Interface"
                       }
                     },
@@ -164,10 +165,10 @@
                         "name": "AggregatorV3Interface",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1349,
+                        "referencedDeclaration": 1362,
                         "src": "349:21:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_AggregatorV3Interface_$1349_$",
+                          "typeIdentifier": "t_type$_t_contract$_AggregatorV3Interface_$1362_$",
                           "typeString": "type(contract AggregatorV3Interface)"
                         }
                       },
@@ -182,13 +183,13 @@
                       "src": "349:65:2",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_AggregatorV3Interface_$1349",
+                        "typeIdentifier": "t_contract$_AggregatorV3Interface_$1362",
                         "typeString": "contract AggregatorV3Interface"
                       }
                     },
                     "src": "337:77:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_AggregatorV3Interface_$1349",
+                      "typeIdentifier": "t_contract$_AggregatorV3Interface_$1362",
                       "typeString": "contract AggregatorV3Interface"
                     }
                   },
@@ -390,7 +391,7 @@
                         "referencedDeclaration": 187,
                         "src": "694:9:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_AggregatorV3Interface_$1349",
+                          "typeIdentifier": "t_contract$_AggregatorV3Interface_$1362",
                           "typeString": "contract AggregatorV3Interface"
                         }
                       },
@@ -401,7 +402,7 @@
                       "lValueRequested": false,
                       "memberName": "latestRoundData",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1348,
+                      "referencedDeclaration": 1361,
                       "src": "694:25:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_view$__$returns$_t_uint80_$_t_int256_$_t_uint256_$_t_uint256_$_t_uint80_$",
@@ -534,7 +535,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 1350,
+          "SourceUnit": 1363,
           "absolutePath": "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol",
           "file": "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol",
           "scope": 221,
@@ -583,7 +584,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "AggregatorV3Interface",
-                  "referencedDeclaration": 1349,
+                  "referencedDeclaration": 1362,
                   "type": "contract AggregatorV3Interface"
                 },
                 "id": 186,
@@ -690,7 +691,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1349,
+                                  "referencedDeclaration": 1362,
                                   "type": "type(contract AggregatorV3Interface)",
                                   "value": "AggregatorV3Interface"
                                 },
@@ -980,7 +981,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "latestRoundData",
-                              "referencedDeclaration": 1348,
+                              "referencedDeclaration": 1361,
                               "type": "function () view external returns (uint80,int256,uint256,uint256,uint80)"
                             },
                             "children": [
@@ -1061,9 +1062,17 @@
     "name": "solc",
     "version": "0.6.0+commit.26b70077.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x677Df51EB701127dFa7836a16922831c48118E49",
+      "transactionHash": "0xea6a2a6a8b9325c6ec6aebde7eb741315c13031599e34adb8dc7b210bf8b6da4"
+    }
+  },
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-02-21T05:40:30.076Z",
+  "updatedAt": "2021-02-21T07:18:42.376Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {}
   },
