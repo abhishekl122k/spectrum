@@ -36,13 +36,24 @@ class PostIndex extends Component {
   posts.push({
         address: '0x123',
         name: 'ElonMusk',
-        content: 'Bitcoin price to cross $50,000 on Feb 26th.',
-        yayprice: '0.01',
-        nayprice: '0.01',
-        pool: '26,234,231.12',
-        completed: true,
-        verdict: true
+        content: 'Bitcoin price to cross $50,000 on March 26th.',
+        yayprice: '1200',
+        nayprice: '800',
+        pool: '26,234,231',
+        completed: false,
+        verdict: false
     });
+
+  posts.push({
+      address: '0x123',
+      name: 'Donald Trump',
+      content: 'We won the election!',
+      yayprice: '100',
+      nayprice: '1900',
+      pool: '265,254,211',
+      completed: true,
+      verdict: false
+  });
     return { posts };
   }
 

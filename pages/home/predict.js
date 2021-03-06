@@ -78,7 +78,7 @@ class PredictForm extends Component {
       const post = await Post(this.props.address);
       try {
           const accounts = await web3.eth.getAccounts();
-          await post.methods.voteNo().send({
+          await post.methods.voteNay().send({
             from: accounts[0],
             value: web3.utils.toWei(this.props.nayprice, 'wei')
           });

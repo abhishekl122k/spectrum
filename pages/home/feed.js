@@ -18,7 +18,35 @@ class PostIndex extends Component {
     console.log(spectrum);
 
     var posts = [];
+
+    posts.push({
+      address: '0x123',
+      name: 'ElonMusk',
+      content: 'Bitcoin price to cross $50,000 on March 26th.',
+      yayprice: '1200',
+      nayprice: '800',
+      pool: '26,234,231',
+      completed: false,
+      yaycount: 16235,
+      naycount: 10111,
+      verdict: false
+    });
+
+    posts.push({
+        address: '0x123',
+        name: 'Donald Trump',
+        content: 'We won the election!',
+        yayprice: '100',
+        nayprice: '1900',
+        pool: '265,254,211',
+        yaycount: 202122,
+        naycount: 10211,
+        completed: true,
+        verdict: false
+    });
+
     for(var i = 0; i < spectrum.length; i=i+1){
+      
       let post = await Post(spectrum[i]).methods.getSummary().call();
       console.log('pool value:', post[9]);
       console.log('posts pool \n\n', post);
