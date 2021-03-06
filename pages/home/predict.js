@@ -3,16 +3,15 @@ import { Form, Input, Message, Button, Card, Icon } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import Post from '../../ethereum/post';
 import web3 from '../../ethereum/web3';
-// import { Link } from '../../routes';
-import Router from '../../routes';
+import { Router } from '../../routes';
 
 
 class PredictForm extends Component {
 
   static async getInitialProps(props) {
-      //Kickstarter model code:
+      
       const post = await Post(props.query.address);
-      //const campaign = Campaign(props.query.address);
+      
 
       var summary = await post.methods.getSummary().call(); 
       
@@ -20,75 +19,65 @@ class PredictForm extends Component {
         address: summary[0],
         name: summary[1],
         content: summary[2],
-        yayprice: summary[3],
-        nayprice: summary[4],
-        pool: summary[5],
+        yayprice: summary[3]/1000000000000000000,
+        nayprice: summary[4]/1000000000000000000,
+        pool: summary[9]/1000000000000000000,
         yaycount: summary[5],
         naycount: summary[6],
       };
 
-      // return  {
-      //   address: '0x123',
-      //   name: 'ElonMusk',
-      //   content: 'Bitcoin price to cross $50,000 on Feb 26th.',
-      //   yayprice: '0.01',
-      //   nayprice: '0.01',
-      //   pool: '26,234,231.12',
-      //   yaycount: '202,312',
-      //   naycount: '121,332',
-      // };
+      
     }
 
     state = {
         paymentPrice: this.props.yayprice,
         payingForYes: true,
-        loadingyes: false,
+        loadingYes: false,
         loadingNo: false,
         errorMessage: ''
     };
 
-    //Write 2 function: onSubmitYes and onSubmitNo
 
-    // /* Kickstarter Model code:
     onSubmitYes = async (event) => {
         event.preventDefault();
 
-        this.setState({ loading: true, errorMessage: '' });
+        this.setState({ loadingYes: true, errorMessage: '' });
 
         const post = await Post(this.props.address);
         try {
             const accounts = await web3.eth.getAccounts();
             await post.methods.voteYay().send({
               from: accounts[0],
-              value: web3.utils.toWei(this.props.yayprice + 0.01, 'ether')
+              value: web3.utils.toWei(this.props.yayprice.toString(),'ether')
             });
-            Router.replaceRoute(`/home/feed`);
+            Router.pushRoute(`/home/feed`);
 
         } catch(err) {
             this.setState({ errorMessage: err.message });
         }
-        this.setState({ loading: false, value: '' });
+        this.setState({ loadingYes: false});
     };
 
     onSubmitNo = async (event) => {
       event.preventDefault();
 
-      this.setState({ loading: true, errorMessage: '' });
+      this.setState({ loadingNo: true, errorMessage: '' });
 
       const post = await Post(this.props.address);
       try {
           const accounts = await web3.eth.getAccounts();
-          await post.methods.voteYay().send({
+          await post.methods.voteNay().send({
             from: accounts[0],
-            value: web3.utils.toWei(this.props.nayprice + 0.001, 'ether')
+            value:web3.utils.toWei(toString(this.props.nayprice.toString()),'ether')
           });
+          Router.pushRoute(`/home/feed`);
       } catch(err) {
           this.setState({ errorMessage: err.message });
       }
 
-      this.setState({ loading: false, value: '' })
+      this.setState({ loadingNo: false})
   };
-    // */
+
 
     render () {
         return (
@@ -132,7 +121,7 @@ class PredictForm extends Component {
                 <Message error  header="Oops!" content={this.state.errorMessage} />
 
                 <Button.Group>
-                  <Button loading={this.state.loadingYes}  animated color='green'>
+                  <Button loading={this.state.loadingYes} animated color='green'>
                     <Button.Content visible>Predict Yes</Button.Content>
                     <Button.Content hidden>
                       <Icon name='arrow right' />

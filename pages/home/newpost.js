@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { Form, Input, Message, Button, Card, Icon } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import web3 from '../../ethereum/web3';
-// import { Link } from '../../routes';
-import Router from '../../routes';
+import { Router } from '../../routes';
 import factory from '../../ethereum/factory';
-import Post from '../../ethereum/post';
 
 class PredictForm extends Component {
 
@@ -16,9 +14,6 @@ class PredictForm extends Component {
         errorMessage: ''
     };
 
-    //Write 1 function: onSubmit
-
-    // /* Kickstarter Model code:
     onSubmit = async (event) => {
         event.preventDefault();
 
@@ -28,20 +23,19 @@ class PredictForm extends Component {
             const accounts = await web3.eth.getAccounts();
             let deployedPosts = await factory.methods.getDeployedPosts().call();
             console.log("deployed posts:", deployedPosts);
-            let createPostResult = await factory.methods.createPost().send({
-              from: accounts[0],
-              value: web3.utils.toWei("0.001", 'ether')
+            let createPostResult = await factory.methods.createPost(this.state.content, this.state.name).send({
+              from: accounts[0]
             });
             console.log(createPostResult);
             
-            Router.replaceRoute(`/campaigns/${this.props.address}`);
+            Router.pushRoute('/home/feed');
         } catch(err) {
             this.setState({ errorMessage: err.message });
         }
 
-        this.setState({ loading: false, value: '' })
+        this.setState({ loading: false})
     };
-    // */
+
 
     render () {
         return (
