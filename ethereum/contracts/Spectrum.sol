@@ -5,8 +5,6 @@ contract Spectrum{
 
     address[] public deployedPosts;
     
-    //Pass post content and alias name as string. How??
-    
     function createPost(string memory content, string memory name) public returns (address[] memory){
         Post newPost = new Post(msg.sender, content, name);
         deployedPosts.push(address(newPost));
@@ -17,19 +15,10 @@ contract Spectrum{
         return deployedPosts;
     }
 
-    // function returnName() public view returns(string memory){
-    //     return name;
-    // }
-
-    // constructor(string memory content_init, string memory name_init)public{
-    //     content = content_init;
-    //     name = name_init;
-    // }
 }
 
 contract Post{
 
-    // address tempAddress = address(keccak256("0x604BCD042D2d5B355ecE14B6aC3224d23F29a51c"));//delete this
     address tempAddress;
     
     address public manager;
@@ -70,6 +59,7 @@ contract Post{
                 }
             }
         }
+        completed = true;
     }
  
     
@@ -81,7 +71,7 @@ contract Post{
     function voteYay() public payable active{
     		
         if(msg.sender == tempAddress){
-            completed = true;
+
             verdict = true;
             complete();
         }else{
