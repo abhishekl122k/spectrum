@@ -35,6 +35,7 @@ contract Post{
     address payable [] voted;
     bool completed = false;
     bool verdict;
+    uint balanceRef = 0;
 
     
     modifier active(){
@@ -45,33 +46,34 @@ contract Post{
   	function complete() public payable{
 
         if(msg.sender== tempAddress) {
+			completed = true;
+            balanceRef = address(this).balance;
             if(verdict==true){
                 for(uint i = 0; i < voted.length; i++){
                     if(yays[voted[i]]>0){
-                        voted[i].transfer(yays[voted[i]]*address(this).balance/(yaycount)*95/100);
+                        voted[i].transfer((yays[voted[i]]*balanceRef)/(yaycount)*95/100);
+                    }
+                }
+            }else{
+                for(uint i = 0; i < voted.length; i++){
+                    if(nays[voted[i]]>0){
+                        voted[i].transfer((nays[voted[i]]*balanceRef)/(naycount)*95/100);
                     }
                 }
             }
-        }else{
-            for(uint i = 0; i < voted.length; i++){
-                if(nays[voted[i]]>0){
-                    voted[i].transfer(nays[voted[i]]*address(this).balance/(naycount)*95/100);
-                }
-            }
         }
-        completed = true;
     }
  
     
     function updateCost() public {
         yayprice =  ((total *(yaycount+10))/(yaycount + naycount + 20));
         nayprice = total - yayprice;
+        balanceRef = address(this).balance;
     }
     
     function voteYay() public payable active{
     		
         if(msg.sender == tempAddress){
-
             verdict = true;
             complete();
         }else{
@@ -90,7 +92,6 @@ contract Post{
     function voteNay() public payable {
     	
       	 if(msg.sender==tempAddress){
-			completed = true;
             verdict = false;
             complete();
         }else{
@@ -107,7 +108,7 @@ contract Post{
     }
 
     function getSummary() public view returns (address, string memory, string memory, uint, uint, uint, uint, bool, bool, uint){
-        return(address(this), name, content, yayprice, nayprice, yaycount, naycount, completed, verdict, address(this).balance);
+        return(address(this), name, content, yayprice, nayprice, yaycount, naycount, completed, verdict, balanceRef);
     }
     
     

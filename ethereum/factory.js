@@ -5,7 +5,7 @@ import Spectrum from './build/contracts/Spectrum.json';
 const instance = new web3.eth.Contract(
 	Spectrum.abi,
 	//address of spectrum here
-	'0xd2A5bAc6729Ced431122E1864A5F825Dd5A97D12'
+	'0x07059A85cD2E171112668133B47fF21BbD19Aa98'
 	);
 
 console.log(instance);
