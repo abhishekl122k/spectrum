@@ -38,4 +38,4 @@ We aim to solve this problem of misinformation by means of crowd verification an
 - Biconomy (For reducing gas prices).
 - Truffle 
 
-
+Working video : https://youtu.be/DIpLobp394A
