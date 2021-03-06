@@ -83,12 +83,13 @@ contract Post{
         if(msg.sender == tempAddress){
             completed = true;
             verdict = true;
+            complete();
         }else{
         	if(yays[msg.sender]==0 && nays[msg.sender]==0){
           	    voted.push(msg.sender);
         	}
-            //require(msg.value>=yayprice);
-            //require(yays[msg.sender]<=3);
+            require(msg.value>=yayprice);
+            require(yays[msg.sender]<=3);
 
             yays[msg.sender]++;
             yaycount++;
@@ -101,6 +102,7 @@ contract Post{
       	 if(msg.sender==tempAddress){
 			completed = true;
             verdict = false;
+            complete();
         }else{
         	if(yays[msg.sender]==0 && nays[msg.sender]==0){
           	    voted.push(msg.sender);
