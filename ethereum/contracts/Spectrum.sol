@@ -74,8 +74,8 @@ contract Post{
  
     
     function updateCost() public {
-        yayprice = total * ((yaycount+10)/(yaycount + naycount + 20));
-        nayprice = total - yaycount;
+        yayprice =  ((total *(yaycount+10))/(yaycount + naycount + 20));
+        nayprice = total - yayprice;
     }
     
     function voteYay() public payable active{
