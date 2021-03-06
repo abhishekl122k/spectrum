@@ -4,7 +4,7 @@ import Layout from '../../components/Layout';
 import Post from '../../ethereum/post';
 import web3 from '../../ethereum/web3';
 // import { Link } from '../../routes';
-import Router from '../../routes';
+import { Router } from '../../routes';
 
 
 class PredictForm extends Component {
@@ -42,7 +42,7 @@ class PredictForm extends Component {
     state = {
         paymentPrice: this.props.yayprice,
         payingForYes: true,
-        loadingyes: false,
+        loadingYes: false,
         loadingNo: false,
         errorMessage: ''
     };
@@ -53,7 +53,7 @@ class PredictForm extends Component {
     onSubmitYes = async (event) => {
         event.preventDefault();
 
-        this.setState({ loading: true, errorMessage: '' });
+        this.setState({ loadingYes: true, errorMessage: '' });
 
         const post = await Post(this.props.address);
         try {
@@ -62,31 +62,31 @@ class PredictForm extends Component {
               from: accounts[0],
               value: web3.utils.toWei(this.props.yayprice + 0.01, 'ether')
             });
-            Router.replaceRoute(`/home/feed`);
+            Router.pushRoute(`/home/feed`);
 
         } catch(err) {
             this.setState({ errorMessage: err.message });
         }
-        this.setState({ loading: false, value: '' });
+        this.setState({ loadingYes: false, value: '' });
     };
 
     onSubmitNo = async (event) => {
       event.preventDefault();
 
-      this.setState({ loading: true, errorMessage: '' });
+      this.setState({ loadingNo: true, errorMessage: '' });
 
       const post = await Post(this.props.address);
       try {
           const accounts = await web3.eth.getAccounts();
           await post.methods.voteYay().send({
             from: accounts[0],
-            value: web3.utils.toWei(this.props.nayprice + 0.001, 'ether')
+            value: web3.utils.toWei(this.props.nayprice, 'ether')
           });
       } catch(err) {
           this.setState({ errorMessage: err.message });
       }
 
-      this.setState({ loading: false, value: '' })
+      this.setState({ loadingNo: false, value: '' })
   };
     // */
 
@@ -109,10 +109,10 @@ class PredictForm extends Component {
               <Card.Content extra>
                 <div className='ui two buttons'>
                   <Button disabled basic color='green'>
-                    Yes: {this.props.yayprice} ETH
+                    Yes: {this.props.yayprice} Wei
                   </Button>
                   <Button disabled basic color='red'>
-                    No: {this.props.nayprice} ETH
+                    No: {this.props.nayprice} Wei
                   </Button>
                 </div>
                 <br/>
@@ -132,14 +132,14 @@ class PredictForm extends Component {
                 <Message error  header="Oops!" content={this.state.errorMessage} />
 
                 <Button.Group>
-                  <Button loading={this.state.loadingYes}  animated color='green'>
+                  <Button loading={this.state.loadingYes} animated color='green'>
                     <Button.Content visible>Predict Yes</Button.Content>
                     <Button.Content hidden>
                       <Icon name='arrow right' />
                     </Button.Content>
                   </Button>
                   <Button.Or text='  ' />
-                  <Button disabled>Pay {this.props.yayprice} ETH</Button>
+                  <Button disabled>Pay {this.props.yayprice} Wei</Button>
                 </Button.Group>
             </Form>
 
@@ -155,7 +155,7 @@ class PredictForm extends Component {
                     </Button.Content>
                   </Button>
                   <Button.Or text='  ' />
-                  <Button disabled >Pay {this.props.nayprice} ETH</Button>
+                  <Button disabled >Pay {this.props.nayprice} Wei</Button>
                 </Button.Group>
                 </Form>
             </center>
