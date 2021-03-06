@@ -25,17 +25,17 @@ contract Post{
     string public name;
     string public content;
     
-    uint public total = 2000;
+    uint public total = 20000000000000000;
     uint public yayprice;
     uint public nayprice;
     uint public yaycount = 0;
     uint public naycount = 0;
     mapping(address=>uint) public yays;
     mapping(address=>uint) public nays;
-    address payable [] voted;
-    bool completed = false;
-    bool verdict;
-    uint balanceRef = 0;
+    address payable [] public voted;
+    bool public completed = false;
+    bool public verdict;
+    uint public balanceRef = 0;
 
     
     modifier active(){

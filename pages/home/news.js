@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import { Card, Button, Icon } from 'semantic-ui-react';
-//import factory from '../../ethereum/factory';
 import Layout from '../../components/Layout';
-import { Link } from '../../routes';
 import Post from '../../ethereum/post';
 import Factory from '../../ethereum/factory';
 
 
 class PostIndex extends Component {
   static async getInitialProps() {
-    //const campaigns = await factory.methods.getDeployedPosts().call();
 
     const spectrum = await Factory.methods.getDeployedPosts().call();
-    
-    //This is what contract data should look like:
+
 
     var posts = [];
     for(var i = 0; i < spectrum.length; i=i+1){
@@ -23,9 +19,9 @@ class PostIndex extends Component {
         address: post[0],
         name: post[1],
         content: post[2],
-        yayprice: post[3],
-        nayprice: post[4],
-        pool: post[9],
+        yayprice: post[3]/1000000000000000000,
+        nayprice: post[4]/1000000000000000000,
+        pool: post[9]/1000000000000000000,
         yaycount: post[5],
         naycount: post[6],
         completed: post[7],
@@ -33,24 +29,14 @@ class PostIndex extends Component {
       })
     }
 
-  posts.push({
-        address: '0x123',
-        name: 'ElonMusk',
-        content: 'Bitcoin price to cross $50,000 on March 26th.',
-        yayprice: '1200',
-        nayprice: '800',
-        pool: '26,234,231',
-        completed: false,
-        verdict: false
-    });
 
   posts.push({
       address: '0x123',
       name: 'Donald Trump',
       content: 'We won the election!',
-      yayprice: '100',
-      nayprice: '1900',
-      pool: '265,254,211',
+      yayprice: '0.001',
+      nayprice: '0.019',
+      pool: '265,254',
       completed: true,
       verdict: false
   });
@@ -86,7 +72,7 @@ class PostIndex extends Component {
             extra: (
                 <div>
                 <Button.Group>
-                    <Button disabled >Pool: {post.pool} Wei</Button>
+                    <Button disabled >Pool: {post.pool} ETH</Button>
                     <Button.Or text='  ' />
                     
                         

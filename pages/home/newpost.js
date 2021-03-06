@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Form, Input, Message, Button, Card, Icon } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import web3 from '../../ethereum/web3';
-// import { Link } from '../../routes';
 import { Router } from '../../routes';
 import factory from '../../ethereum/factory';
 
@@ -15,9 +14,6 @@ class PredictForm extends Component {
         errorMessage: ''
     };
 
-    //Write 1 function: onSubmit
-
-    // /* Kickstarter Model code:
     onSubmit = async (event) => {
         event.preventDefault();
 
@@ -39,7 +35,7 @@ class PredictForm extends Component {
 
         this.setState({ loading: false})
     };
-    // */
+
 
     render () {
         return (

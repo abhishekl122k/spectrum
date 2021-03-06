@@ -10,9 +10,3 @@ const instance = new web3.eth.Contract(
 );
 export default instance;
 
-// export default (address) => {
-//     return new web3.eth.Contract(
-//         Post.abi,
-//         address
-//     );
-// };

@@ -3,16 +3,15 @@ import { Form, Input, Message, Button, Card, Icon } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import Post from '../../ethereum/post';
 import web3 from '../../ethereum/web3';
-// import { Link } from '../../routes';
 import { Router } from '../../routes';
 
 
 class PredictForm extends Component {
 
   static async getInitialProps(props) {
-      //Kickstarter model code:
+      
       const post = await Post(props.query.address);
-      //const campaign = Campaign(props.query.address);
+      
 
       var summary = await post.methods.getSummary().call(); 
       
@@ -20,23 +19,14 @@ class PredictForm extends Component {
         address: summary[0],
         name: summary[1],
         content: summary[2],
-        yayprice: summary[3],
-        nayprice: summary[4],
-        pool: summary[5],
+        yayprice: summary[3]/1000000000000000000,
+        nayprice: summary[4]/1000000000000000000,
+        pool: summary[9]/1000000000000000000,
         yaycount: summary[5],
         naycount: summary[6],
       };
 
-      // return  {
-      //   address: '0x123',
-      //   name: 'ElonMusk',
-      //   content: 'Bitcoin price to cross $50,000 on Feb 26th.',
-      //   yayprice: '0.01',
-      //   nayprice: '0.01',
-      //   pool: '26,234,231.12',
-      //   yaycount: '202,312',
-      //   naycount: '121,332',
-      // };
+      
     }
 
     state = {
@@ -47,9 +37,7 @@ class PredictForm extends Component {
         errorMessage: ''
     };
 
-    //Write 2 function: onSubmitYes and onSubmitNo
 
-    // /* Kickstarter Model code:
     onSubmitYes = async (event) => {
         event.preventDefault();
 
@@ -60,7 +48,7 @@ class PredictForm extends Component {
             const accounts = await web3.eth.getAccounts();
             await post.methods.voteYay().send({
               from: accounts[0],
-              value: web3.utils.toWei(this.props.yayprice ,'wei')
+              value: web3.utils.toWei(this.props.yayprice.toString(),'ether')
             });
             Router.pushRoute(`/home/feed`);
 
@@ -80,7 +68,7 @@ class PredictForm extends Component {
           const accounts = await web3.eth.getAccounts();
           await post.methods.voteNay().send({
             from: accounts[0],
-            value: web3.utils.toWei(this.props.nayprice, 'wei')
+            value:web3.utils.toWei(toString(this.props.nayprice.toString()),'ether')
           });
           Router.pushRoute(`/home/feed`);
       } catch(err) {
@@ -89,7 +77,7 @@ class PredictForm extends Component {
 
       this.setState({ loadingNo: false})
   };
-    // */
+
 
     render () {
         return (
@@ -110,10 +98,10 @@ class PredictForm extends Component {
               <Card.Content extra>
                 <div className='ui two buttons'>
                   <Button disabled basic color='green'>
-                    Yes: {this.props.yayprice} Wei
+                    Yes: {this.props.yayprice} ETH
                   </Button>
                   <Button disabled basic color='red'>
-                    No: {this.props.nayprice} Wei
+                    No: {this.props.nayprice} ETH
                   </Button>
                 </div>
                 <br/>
@@ -140,7 +128,7 @@ class PredictForm extends Component {
                     </Button.Content>
                   </Button>
                   <Button.Or text='  ' />
-                  <Button disabled>Pay {this.props.yayprice} Wei</Button>
+                  <Button disabled>Pay {this.props.yayprice} ETH</Button>
                 </Button.Group>
             </Form>
 
@@ -156,7 +144,7 @@ class PredictForm extends Component {
                     </Button.Content>
                   </Button>
                   <Button.Or text='  ' />
-                  <Button disabled >Pay {this.props.nayprice} Wei</Button>
+                  <Button disabled >Pay {this.props.nayprice} ETH</Button>
                 </Button.Group>
                 </Form>
             </center>

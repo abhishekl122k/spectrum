@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Card, Button, Icon } from 'semantic-ui-react';
-//import factory from '../../ethereum/factory';
 import Factory from '../../ethereum/factory';
 import Layout from '../../components/Layout';
 import { Link } from '../../routes';
@@ -11,39 +10,12 @@ import Post from '../../ethereum/post';
 class PostIndex extends Component {
 
   static async getInitialProps() {
-    //const campaigns = await factory.methods.getDeployedPosts().call();
     const spectrum = await Factory.methods.getDeployedPosts().call();
 
     console.log('hello');
     console.log(spectrum);
 
     var posts = [];
-
-    posts.push({
-      address: '0x123',
-      name: 'ElonMusk',
-      content: 'Bitcoin price to cross $50,000 on March 26th.',
-      yayprice: '1200',
-      nayprice: '800',
-      pool: '26,234,231',
-      completed: false,
-      yaycount: 16235,
-      naycount: 10111,
-      verdict: false
-    });
-
-    posts.push({
-        address: '0x123',
-        name: 'Donald Trump',
-        content: 'We won the election!',
-        yayprice: '100',
-        nayprice: '1900',
-        pool: '265,254,211',
-        yaycount: 202122,
-        naycount: 10211,
-        completed: true,
-        verdict: false
-    });
 
     for(var i = 0; i < spectrum.length; i=i+1){
       
@@ -54,9 +26,9 @@ class PostIndex extends Component {
         address: post[0],
         name: post[1],
         content: post[2],
-        yayprice: post[3],
-        nayprice: post[4],
-        pool: post[9],
+        yayprice: post[3]/1000000000000000000,
+        nayprice: post[4]/1000000000000000000,
+        pool: post[9]/1000000000000000000,
         yaycount: post[5],
         naycount: post[6],
         completed: post[7],
@@ -64,27 +36,33 @@ class PostIndex extends Component {
       })
     }
 
-    //This is what contract data should look like:
-    // const posts = [{
-    //     address: '0x123',
-    //     name: 'ElonMusk',
-    //     content: 'Bitcoin price to cross $50,000 on Feb 26th.',
-    //     yayprice: '0.01',
-    //     nayprice: '0.01',
-    //     pool: '26,234,231.12',
-    //     completed: false,
-    //     verdict: true
-    // },
-    // posts.push({   
-    //     address: '0x456',
-    //     name: 'Arvinth',
-    //     content: 'Projected winner of 2021 elections: BJP',
-    //     yayprice: '0.005',
-    //     nayprice: '0.015',
-    //     pool: '24,223.43',
-    //     completed: true,
-    //     verdict: true
-    // });
+    posts.push({
+      address: '0x123',
+      name: 'ElonMusk',
+      content: 'Bitcoin price to cross $50,000 on March 26th.',
+      yayprice: '0.012',
+      nayprice: '0.008',
+      pool: '26,234',
+      completed: false,
+      yaycount: 16235,
+      naycount: 10111,
+      verdict: false
+    });
+
+    posts.push({
+        address: '0x123',
+        name: 'Donald Trump',
+        content: 'We won the election!',
+        yayprice: '0.001',
+        nayprice: '0.019',
+        pool: '265,254',
+        yaycount: 202122,
+        naycount: 10211,
+        completed: true,
+        verdict: false
+    });
+
+    
     return { posts };
   }
 
@@ -110,41 +88,39 @@ class PostIndex extends Component {
 
   renderCampaigns() {
     const items = this.props.posts.map(post => {
-      if(true){
-        return {
-            header: (
-                <h3>
-                    @{post.name}
-                </h3>
-            ),
-            description: (
-                <strong>{post.content}</strong>
-            ),
-            extra: (
-                <div>
-                <div className='ui two buttons'>
-                <Button size='mini' disabled basic color='green'>
-                    Yes: {post.yayprice} Wei
-                </Button>
-                <Button size='mini' disabled basic color='red'>
-                    No: {post.nayprice} Wei
-                </Button>
-                </div>
-                <br/>
-                <br/>
-                {this.renderButton(post.completed, post.verdict, post.address)}
-                <br/>
-                <br/>
-                    <Button disabled size='mini'>Pool: {post.pool} Wei</Button>
-                       
-              </div>
-            ),
-                
-          };
-      }
-      else{
-          return ({ });
-      }
+      
+    return {
+        header: (
+            <h3>
+                @{post.name}
+            </h3>
+        ),
+        description: (
+            <strong>{post.content}</strong>
+        ),
+        extra: (
+            <div>
+            <div className='ui two buttons'>
+            <Button size='mini' disabled basic color='green'>
+                Yes: {post.yayprice} ETH
+            </Button>
+            <Button size='mini' disabled basic color='red'>
+                No: {post.nayprice} ETH
+            </Button>
+            </div>
+            <br/>
+            <br/>
+            {this.renderButton(post.completed, post.verdict, post.address)}
+            <br/>
+            <br/>
+                <Button disabled size='mini'>Pool: {post.pool} ETH</Button>
+                    
+          </div>
+        ),
+            
+      };
+      
+      
         
     });
 
