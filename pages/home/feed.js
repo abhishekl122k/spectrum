@@ -20,14 +20,15 @@ class PostIndex extends Component {
     var posts = [];
     for(var i = 0; i < spectrum.length; i=i+1){
       let post = await Post(spectrum[i]).methods.getSummary().call();
-      console.log('posts \n\n', post);
+      console.log('pool value:', post[9]);
+      console.log('posts pool \n\n', post);
       posts.push({
         address: post[0],
         name: post[1],
         content: post[2],
         yayprice: post[3],
         nayprice: post[4],
-        pool: post[3] + post[4],
+        pool: post[9],
         yaycount: post[5],
         naycount: post[6],
         completed: post[7],
@@ -46,16 +47,16 @@ class PostIndex extends Component {
     //     completed: false,
     //     verdict: true
     // },
-    posts.push({   
-        address: '0x456',
-        name: 'Arvinth',
-        content: 'Projected winner of 2021 elections: BJP',
-        yayprice: '0.005',
-        nayprice: '0.015',
-        pool: '24,223.43',
-        completed: true,
-        verdict: true
-    });
+    // posts.push({   
+    //     address: '0x456',
+    //     name: 'Arvinth',
+    //     content: 'Projected winner of 2021 elections: BJP',
+    //     yayprice: '0.005',
+    //     nayprice: '0.015',
+    //     pool: '24,223.43',
+    //     completed: true,
+    //     verdict: true
+    // });
     return { posts };
   }
 

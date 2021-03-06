@@ -37,7 +37,7 @@ class PredictForm extends Component {
             this.setState({ errorMessage: err.message });
         }
 
-        this.setState({ loading: false, name: '', content:'' })
+        this.setState({ loading: false})
     };
     // */
 

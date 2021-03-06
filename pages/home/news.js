@@ -25,7 +25,7 @@ class PostIndex extends Component {
         content: post[2],
         yayprice: post[3],
         nayprice: post[4],
-        pool: post[3] + post[4],
+        pool: post[9],
         yaycount: post[5],
         naycount: post[6],
         completed: post[7],
@@ -75,7 +75,7 @@ class PostIndex extends Component {
             extra: (
                 <div>
                 <Button.Group>
-                    <Button disabled >Pool: {post.pool} ETH</Button>
+                    <Button disabled >Pool: {post.pool} Wei</Button>
                     <Button.Or text='  ' />
                     
                         

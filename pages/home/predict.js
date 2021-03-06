@@ -67,7 +67,7 @@ class PredictForm extends Component {
         } catch(err) {
             this.setState({ errorMessage: err.message });
         }
-        this.setState({ loadingYes: false, value: '' });
+        this.setState({ loadingYes: false});
     };
 
     onSubmitNo = async (event) => {
@@ -78,15 +78,16 @@ class PredictForm extends Component {
       const post = await Post(this.props.address);
       try {
           const accounts = await web3.eth.getAccounts();
-          await post.methods.voteYay().send({
+          await post.methods.voteNo().send({
             from: accounts[0],
             value: web3.utils.toWei(this.props.nayprice, 'wei')
           });
+          Router.pushRoute(`/home/feed`);
       } catch(err) {
           this.setState({ errorMessage: err.message });
       }
 
-      this.setState({ loadingNo: false, value: '' })
+      this.setState({ loadingNo: false})
   };
     // */
 
