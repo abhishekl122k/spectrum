@@ -5,7 +5,6 @@ import web3 from '../../ethereum/web3';
 // import { Link } from '../../routes';
 import { Router } from '../../routes';
 import factory from '../../ethereum/factory';
-import Post from '../../ethereum/post';
 
 class PredictForm extends Component {
 
@@ -38,7 +37,7 @@ class PredictForm extends Component {
             this.setState({ errorMessage: err.message });
         }
 
-        this.setState({ loading: false, value: '' })
+        this.setState({ loading: false, name: '', content:'' })
     };
     // */
 

@@ -59,9 +59,11 @@ class PostIndex extends Component {
   }
 
   renderCampaigns() {
-    const items = this.props.posts.map(post => {
+    let items = [];
+    this.props.posts.map(post => {
       if(post.completed){
-        return {
+        items.push(
+        {
             header: (
                 <h4>
                     @{post.name}
@@ -85,12 +87,9 @@ class PostIndex extends Component {
               </div>
             ),
             fluid: true,    
-          };
-      }
-      else{
-          return ({ });
-      }
-        
+          }
+        );
+      } 
     });
 
     return <Card.Group items={items} />;
