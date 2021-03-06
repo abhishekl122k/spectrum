@@ -36,6 +36,7 @@ contract Post{
     bool public completed = false;
     bool public verdict;
     uint public balanceRef = 0;
+    uint public timeStamp;
 
     
     modifier active(){

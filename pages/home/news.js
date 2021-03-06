@@ -30,6 +30,8 @@ class PostIndex extends Component {
     }
 
 
+
+  //Dummy data for illustration
   posts.push({
       address: '0x123',
       name: 'Donald Trump',

@@ -6,19 +6,15 @@ contract PriceConsumerV3 {
 
     AggregatorV3Interface internal priceFeed;
 
-    /**
-     * Network: Kovan
-     * Aggregator: ETH/USD
-     * Address: 0x9326BFA02ADD2366b30bacB125260Af641031331
-     */
+
     constructor() public {
         priceFeed = AggregatorV3Interface(0x01BE23585060835E02B77ef475b0Cc51aA1e0709);
     }
 
-    /**
-     * Returns the latest price
-     */
-    function getLatestPrice() public view returns (int) {
+
+    //this function returns the timestamp to be stored on Posts on spectrum.
+
+    function getLatestPrice() public view returns (uint) {
         (
             uint80 roundID, 
             int price,
@@ -26,6 +22,6 @@ contract PriceConsumerV3 {
             uint timeStamp,
             uint80 answeredInRound
         ) = priceFeed.latestRoundData();
-        return price;
+        return timeStamp;
     }
 }

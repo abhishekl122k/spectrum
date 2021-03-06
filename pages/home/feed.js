@@ -36,6 +36,8 @@ class PostIndex extends Component {
       })
     }
 
+
+    //dummy data to illustrate
     posts.push({
       address: '0x123',
       name: 'ElonMusk',

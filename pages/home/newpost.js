@@ -23,6 +23,8 @@ class PredictForm extends Component {
             const accounts = await web3.eth.getAccounts();
             let deployedPosts = await factory.methods.getDeployedPosts().call();
             console.log("deployed posts:", deployedPosts);
+
+            //To deploy new Post 
             let createPostResult = await factory.methods.createPost(this.state.content, this.state.name).send({
               from: accounts[0]
             });
