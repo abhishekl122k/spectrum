@@ -28,10 +28,10 @@ contract PriceConsumerV3 {
 
 contract SpecTime is PriceConsumerV3{
     int public price;
-    constructor() public payable{
+    constructor() public{
         price = getLatestPrice();
     }
-    function getTime() public view returns (uint price){
+    function getPrice() public view returns (int){
         return price;
     }
 }

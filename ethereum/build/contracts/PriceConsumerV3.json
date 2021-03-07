@@ -17,16 +17,15 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.0+commit.26b70077\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"getLatestPrice\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/arvinth/projects/blockchain/spectrum/ethereum/contracts/SpecTime.sol\":\"PriceConsumerV3\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/arvinth/projects/blockchain/spectrum/ethereum/contracts/SpecTime.sol\":{\"keccak256\":\"0x517ee3aca35a6800712f28ee13d4e363e3b13885b0331a52fbcfbeb745bce364\",\"urls\":[\"bzz-raw://e013a3116e77e49de63875b9bbe25b435892b83cf8b2a61b9647b2ff7b11ca4c\",\"dweb:/ipfs/QmNZudaVuQfYZc1dCvwQgNpehup517LZVRYuydWXV6J3CC\"]},\"@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol\":{\"keccak256\":\"0x1862840d741dedb36e774534b877a13b5187555e3b78b8d2815f898b0dc02268\",\"urls\":[\"bzz-raw://64a15f4349aea6e60703f581a6280b71d6adb35ee74d2f3c4f130a2adc3efee3\",\"dweb:/ipfs/QmdVoSQvGfJNPnjQsAs7ZN3ueWghzTa72jSqzhGiQNDpkL\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b50738a753747a1fa494ec906ce90e9f37563a8af630e6000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555061016c806100746000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c80638e15f47314610030575b600080fd5b61003861004e565b6040518082815260200191505060405180910390f35b6000806000806000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663feaf968c6040518163ffffffff1660e01b815260040160a06040518083038186803b1580156100be57600080fd5b505afa1580156100d2573d6000803e3d6000fd5b505050506040513d60a08110156100e857600080fd5b8101908080519060200190929190805190602001909291908051906020019092919080519060200190929190805190602001909291905050509450945094509450945083955050505050509056fea2646970667358221220ec6e9b66f9513db5ffc088be6432ce348d58f447a8f41158a54ee82563860a7964736f6c63430006000033",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c80638e15f47314610030575b600080fd5b61003861004e565b6040518082815260200191505060405180910390f35b6000806000806000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663feaf968c6040518163ffffffff1660e01b815260040160a06040518083038186803b1580156100be57600080fd5b505afa1580156100d2573d6000803e3d6000fd5b505050506040513d60a08110156100e857600080fd5b8101908080519060200190929190805190602001909291908051906020019092919080519060200190929190805190602001909291905050509450945094509450945083955050505050509056fea2646970667358221220ec6e9b66f9513db5ffc088be6432ce348d58f447a8f41158a54ee82563860a7964736f6c63430006000033",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.0+commit.26b70077\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"getLatestPrice\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/arvinth/projects/blockchain/spectrum/ethereum/contracts/SpecTime.sol\":\"PriceConsumerV3\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/arvinth/projects/blockchain/spectrum/ethereum/contracts/SpecTime.sol\":{\"keccak256\":\"0xe23dc76f9d3e058f8a5b61ad147ccbaa74dad86f334ce6fba4c69e382c9b0dd9\",\"urls\":[\"bzz-raw://1f979b48c84eb63ed0665f97911af54db36fcf29a28233a6a9606f2ca44d6883\",\"dweb:/ipfs/QmWxy8UAAr3kf5erqawQAMsYvfa2qmPLbESCbJMtaUjskk\"]},\"@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol\":{\"keccak256\":\"0x1862840d741dedb36e774534b877a13b5187555e3b78b8d2815f898b0dc02268\",\"urls\":[\"bzz-raw://64a15f4349aea6e60703f581a6280b71d6adb35ee74d2f3c4f130a2adc3efee3\",\"dweb:/ipfs/QmdVoSQvGfJNPnjQsAs7ZN3ueWghzTa72jSqzhGiQNDpkL\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50738a753747a1fa494ec906ce90e9f37563a8af630e6000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555061016c806100746000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c80638e15f47314610030575b600080fd5b61003861004e565b6040518082815260200191505060405180910390f35b6000806000806000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663feaf968c6040518163ffffffff1660e01b815260040160a06040518083038186803b1580156100be57600080fd5b505afa1580156100d2573d6000803e3d6000fd5b505050506040513d60a08110156100e857600080fd5b8101908080519060200190929190805190602001909291908051906020019092919080519060200190929190805190602001909291905050509450945094509450945083955050505050509056fea26469706673582212206ef5e0856d1d9569490b28b4c42f8fc15f150369108d62ef3e8f9bd205f5a5ee64736f6c63430006000033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c80638e15f47314610030575b600080fd5b61003861004e565b6040518082815260200191505060405180910390f35b6000806000806000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663feaf968c6040518163ffffffff1660e01b815260040160a06040518083038186803b1580156100be57600080fd5b505afa1580156100d2573d6000803e3d6000fd5b505050506040513d60a08110156100e857600080fd5b8101908080519060200190929190805190602001909291908051906020019092919080519060200190929190805190602001909291905050509450945094509450945083955050505050509056fea26469706673582212206ef5e0856d1d9569490b28b4c42f8fc15f150369108d62ef3e8f9bd205f5a5ee64736f6c63430006000033",
   "sourceMap": "103:567:2:-:0;;;183:115;8:9:-1;5:2;;;30:1;27;20:12;5:2;183:115:2;248:42;214:9;;:77;;;;;;;;;;;;;;;;;;103:567;;;;;;",
   "deployedSourceMap": "103:567:2:-:0;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;103:567:2;;;;;;;;;;;;;;;;;;;393:275;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;440:3;469:14;498:9;521:14;549;577:22;612:9;;;;;;;;;;;:25;;;:27;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;612:27:2;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;612:27:2;;;;;;;13:3:-1;8;5:12;2:2;;;30:1;27;20:12;2:2;612:27:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;455:184;;;;;;;;;;656:5;649:12;;;;;;;393:275;:::o",
-  "source": "pragma solidity ^0.6.0;\n\nimport \"@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol\";\n\ncontract PriceConsumerV3 {\n\n    AggregatorV3Interface internal priceFeed;\n\n\n    constructor() public {\n        priceFeed = AggregatorV3Interface(0x8A753747A1Fa494EC906cE90E9f37563A8AF630e);\n    }\n\n\n    //this function returns the price and timestamp to be stored on Posts on spectrum.\n\n    function getLatestPrice() public view returns (int) {\n        (\n            uint80 roundID, \n            int price,\n            uint startedAt,\n            uint timeStamp,\n            uint80 answeredInRound\n        ) = priceFeed.latestRoundData();\n        return price;\n    }\n}\n\ncontract SpecTime is PriceConsumerV3{\n    int public price;\n    constructor() public payable{\n        price = getLatestPrice();\n    }\n    function getTime() public view returns (uint price){\n        return price;\n    }\n}",
+  "source": "pragma solidity ^0.6.0;\n\nimport \"@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol\";\n\ncontract PriceConsumerV3 {\n\n    AggregatorV3Interface internal priceFeed;\n\n\n    constructor() public {\n        priceFeed = AggregatorV3Interface(0x8A753747A1Fa494EC906cE90E9f37563A8AF630e);\n    }\n\n\n    //this function returns the price and timestamp to be stored on Posts on spectrum.\n\n    function getLatestPrice() public view returns (int) {\n        (\n            uint80 roundID, \n            int price,\n            uint startedAt,\n            uint timeStamp,\n            uint80 answeredInRound\n        ) = priceFeed.latestRoundData();\n        return price;\n    }\n}\n\ncontract SpecTime is PriceConsumerV3{\n    int public price;\n    constructor() public{\n        price = getLatestPrice();\n    }\n    function getPrice() public view returns (int){\n        return price;\n    }\n}",
   "sourcePath": "/home/arvinth/projects/blockchain/spectrum/ethereum/contracts/SpecTime.sol",
   "ast": {
     "absolutePath": "/home/arvinth/projects/blockchain/spectrum/ethereum/contracts/SpecTime.sol",
@@ -578,7 +577,7 @@
             "body": {
               "id": 268,
               "nodeType": "Block",
-              "src": "764:41:2",
+              "src": "756:41:2",
               "statements": [
                 {
                   "expression": {
@@ -595,7 +594,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 260,
-                      "src": "774:5:2",
+                      "src": "766:5:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_int256",
                         "typeString": "int256"
@@ -613,7 +612,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 255,
-                        "src": "782:14:2",
+                        "src": "774:14:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_internal_view$__$returns$_t_int256_$",
                           "typeString": "function () view returns (int256)"
@@ -627,14 +626,14 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "782:16:2",
+                      "src": "774:16:2",
                       "tryCall": false,
                       "typeDescriptions": {
                         "typeIdentifier": "t_int256",
                         "typeString": "int256"
                       }
                     },
-                    "src": "774:24:2",
+                    "src": "766:24:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_int256",
                       "typeString": "int256"
@@ -642,7 +641,7 @@
                   },
                   "id": 267,
                   "nodeType": "ExpressionStatement",
-                  "src": "774:24:2"
+                  "src": "766:24:2"
                 }
               ]
             },
@@ -664,11 +663,11 @@
               "id": 262,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "764:0:2"
+              "src": "756:0:2"
             },
             "scope": 278,
-            "src": "736:69:2",
-            "stateMutability": "payable",
+            "src": "736:61:2",
+            "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
@@ -676,7 +675,7 @@
             "body": {
               "id": 276,
               "nodeType": "Block",
-              "src": "861:29:2",
+              "src": "847:29:2",
               "statements": [
                 {
                   "expression": {
@@ -685,34 +684,34 @@
                     "name": "price",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 272,
-                    "src": "878:5:2",
+                    "referencedDeclaration": 260,
+                    "src": "864:5:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_int256",
+                      "typeString": "int256"
                     }
                   },
                   "functionReturnParameters": 273,
                   "id": 275,
                   "nodeType": "Return",
-                  "src": "871:12:2"
+                  "src": "857:12:2"
                 }
               ]
             },
             "documentation": null,
-            "functionSelector": "557ed1ba",
+            "functionSelector": "98d5fdca",
             "id": 277,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
-            "name": "getTime",
+            "name": "getPrice",
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
               "id": 270,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "826:2:2"
+              "src": "819:2:2"
             },
             "returnParameters": {
               "id": 273,
@@ -721,45 +720,45 @@
                 {
                   "constant": false,
                   "id": 272,
-                  "name": "price",
+                  "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 277,
-                  "src": "850:10:2",
+                  "src": "843:3:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
                   },
                   "typeName": {
                     "id": 271,
-                    "name": "uint",
+                    "name": "int",
                     "nodeType": "ElementaryTypeName",
-                    "src": "850:4:2",
+                    "src": "843:3:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
+                      "typeIdentifier": "t_int256",
+                      "typeString": "int256"
                     }
                   },
                   "value": null,
                   "visibility": "internal"
                 }
               ],
-              "src": "849:12:2"
+              "src": "842:5:2"
             },
             "scope": 278,
-            "src": "810:80:2",
+            "src": "802:74:2",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "public"
           }
         ],
         "scope": 279,
-        "src": "672:220:2"
+        "src": "672:206:2"
       }
     ],
-    "src": "0:892:2"
+    "src": "0:878:2"
   },
   "legacyAST": {
     "attributes": {
@@ -1385,7 +1384,7 @@
               "name": "",
               "overrides": null,
               "scope": 278,
-              "stateMutability": "payable",
+              "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "public"
             },
@@ -1410,7 +1409,7 @@
                 "children": [],
                 "id": 262,
                 "name": "ParameterList",
-                "src": "764:0:2"
+                "src": "756:0:2"
               },
               {
                 "children": [
@@ -1439,7 +1438,7 @@
                             },
                             "id": 263,
                             "name": "Identifier",
-                            "src": "774:5:2"
+                            "src": "766:5:2"
                           },
                           {
                             "attributes": {
@@ -1474,44 +1473,44 @@
                                 },
                                 "id": 264,
                                 "name": "Identifier",
-                                "src": "782:14:2"
+                                "src": "774:14:2"
                               }
                             ],
                             "id": 265,
                             "name": "FunctionCall",
-                            "src": "782:16:2"
+                            "src": "774:16:2"
                           }
                         ],
                         "id": 266,
                         "name": "Assignment",
-                        "src": "774:24:2"
+                        "src": "766:24:2"
                       }
                     ],
                     "id": 267,
                     "name": "ExpressionStatement",
-                    "src": "774:24:2"
+                    "src": "766:24:2"
                   }
                 ],
                 "id": 268,
                 "name": "Block",
-                "src": "764:41:2"
+                "src": "756:41:2"
               }
             ],
             "id": 269,
             "name": "FunctionDefinition",
-            "src": "736:69:2"
+            "src": "736:61:2"
           },
           {
             "attributes": {
               "documentation": null,
-              "functionSelector": "557ed1ba",
+              "functionSelector": "98d5fdca",
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
               "modifiers": [
                 null
               ],
-              "name": "getTime",
+              "name": "getPrice",
               "overrides": null,
               "scope": 278,
               "stateMutability": "view",
@@ -1528,41 +1527,41 @@
                 "children": [],
                 "id": 270,
                 "name": "ParameterList",
-                "src": "826:2:2"
+                "src": "819:2:2"
               },
               {
                 "children": [
                   {
                     "attributes": {
                       "constant": false,
-                      "name": "price",
+                      "name": "",
                       "overrides": null,
                       "scope": 277,
                       "stateVariable": false,
                       "storageLocation": "default",
-                      "type": "uint256",
+                      "type": "int256",
                       "value": null,
                       "visibility": "internal"
                     },
                     "children": [
                       {
                         "attributes": {
-                          "name": "uint",
-                          "type": "uint256"
+                          "name": "int",
+                          "type": "int256"
                         },
                         "id": 271,
                         "name": "ElementaryTypeName",
-                        "src": "850:4:2"
+                        "src": "843:3:2"
                       }
                     ],
                     "id": 272,
                     "name": "VariableDeclaration",
-                    "src": "850:10:2"
+                    "src": "843:3:2"
                   }
                 ],
                 "id": 273,
                 "name": "ParameterList",
-                "src": "849:12:2"
+                "src": "842:5:2"
               },
               {
                 "children": [
@@ -1577,54 +1576,46 @@
                           "overloadedDeclarations": [
                             null
                           ],
-                          "referencedDeclaration": 272,
-                          "type": "uint256",
+                          "referencedDeclaration": 260,
+                          "type": "int256",
                           "value": "price"
                         },
                         "id": 274,
                         "name": "Identifier",
-                        "src": "878:5:2"
+                        "src": "864:5:2"
                       }
                     ],
                     "id": 275,
                     "name": "Return",
-                    "src": "871:12:2"
+                    "src": "857:12:2"
                   }
                 ],
                 "id": 276,
                 "name": "Block",
-                "src": "861:29:2"
+                "src": "847:29:2"
               }
             ],
             "id": 277,
             "name": "FunctionDefinition",
-            "src": "810:80:2"
+            "src": "802:74:2"
           }
         ],
         "id": 278,
         "name": "ContractDefinition",
-        "src": "672:220:2"
+        "src": "672:206:2"
       }
     ],
     "id": 279,
     "name": "SourceUnit",
-    "src": "0:892:2"
+    "src": "0:878:2"
   },
   "compiler": {
     "name": "solc",
     "version": "0.6.0+commit.26b70077.Emscripten.clang"
   },
-  "networks": {
-    "4": {
-      "events": {},
-      "links": {},
-      "address": "0xCa0e2512e9Ea6f425a66d24a53e11d6c75b1c1bf",
-      "transactionHash": "0x92f9020a60c4b9f45752d7481dc8e4f94910548a9337990ca6734972e9873361"
-    }
-  },
+  "networks": {},
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-03-07T05:05:15.770Z",
-  "networkType": "ethereum",
+  "updatedAt": "2021-03-07T05:21:53.094Z",
   "devdoc": {
     "methods": {}
   },

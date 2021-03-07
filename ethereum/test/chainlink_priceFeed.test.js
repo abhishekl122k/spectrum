@@ -32,7 +32,7 @@ contract("PriceConsumerV3!", accounts=>{
 //         ;
 //     });
 //     it("should call price feed", async()=>{
-//         await instance.getTime.call();
+//         await instance.getPrice.call();
 //     });
 // });
 

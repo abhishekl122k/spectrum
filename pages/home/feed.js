@@ -23,7 +23,7 @@ class PostIndex extends Component {
     }
 
     try{
-      const SpecTime = await SpecTimeFactory.methods.getTime().call();
+      const SpecTime = await SpecTimeFactory.methods.getPrice().call();
 
       console.log("SpecTime", SpecTime);
     }catch(e){
