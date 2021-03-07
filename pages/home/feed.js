@@ -4,6 +4,7 @@ import Factory from '../../ethereum/factory';
 import Layout from '../../components/Layout';
 import { Link } from '../../routes';
 import Post from '../../ethereum/post';
+import EthUsd from '../../ethereum/ethUsd';
 
 
 
@@ -11,6 +12,14 @@ class PostIndex extends Component {
 
   static async getInitialProps() {
     const spectrum = await Factory.methods.getDeployedPosts().call();
+
+    try{
+      const priceConsumerV3 = await EthUsd.methods.getLatestPrice().call();
+
+      console.log("Price Consumer V3", priceConsumerV3);
+    }catch(e){
+      console.log("error while creating PriceConsumerV3", e);
+    }
 
     console.log('hello');
     console.log(spectrum);
