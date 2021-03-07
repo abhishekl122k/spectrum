@@ -5,7 +5,7 @@ import PriceConsumerV3 from './build/contracts/PriceConsumerV3.json';
 const instance = new web3.eth.Contract(
 	PriceConsumerV3.abi,
 	//address of PriceConsumer here
-	'0xCa0e2512e9Ea6f425a66d24a53e11d6c75b1c1bf'
+	'0xcCbc63f81DC0da619098b9Ca5b468Cb86Bf9f15B'
 	);
 
 console.log(instance);

@@ -5,6 +5,7 @@ import Layout from '../../components/Layout';
 import { Link } from '../../routes';
 import Post from '../../ethereum/post';
 import EthUsd from '../../ethereum/ethUsd';
+import SpecTimeFactory from '../../ethereum/specTime';
 
 
 
@@ -20,6 +21,15 @@ class PostIndex extends Component {
     }catch(e){
       console.log("error while creating PriceConsumerV3", e);
     }
+
+    try{
+      const SpecTime = await SpecTimeFactory.methods.getTime().call();
+
+      console.log("SpecTime", SpecTime);
+    }catch(e){
+      console.log("error while creating SpecTime", e);
+    }
+
 
     console.log('hello');
     console.log(spectrum);
