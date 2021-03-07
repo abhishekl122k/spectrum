@@ -8,51 +8,26 @@ import "@chainlink/contracts/src/v0.6/ChainlinkClient.sol";
 contract APIConsumer is ChainlinkClient {
   
     uint256 public volume;
-    
     address private oracle;
-    bytes32 private jobId;
+    string private jobId;
     uint256 private fee;
-
 
 
     constructor() public {
 
-
-        //change the oracle and jobId during rinkeby deployment
-
         setPublicChainlinkToken();
-        oracle = 0x7AFe1118Ea78C1eae84ca8feE5C65Bc76CcF879e;
-        jobId = "6d1bfe27e7034b1d87b5270556b17277";
-        fee = 0.1 * 10 ** 18; 
-        require(true, "passed constructor");
+        oracle = 0xC2d39d70fB75Fb3d2a0e3a67B914Bfd8A7e2964a;
+        jobId = "f858e9a076704c06a73a5b564772de6f";
+        fee = 0.05 * 10 ** 18; 
     }
 
 
-    //function to debug APIConsumer
-    function testFunction() public returns (int test_data){
-        test_data = 1;
-        return test_data;
-        bytes32 request_data = requestVolumeData();
-    }
-
-    function requestVolumeData() public returns (bytes32 requestId) 
+    function requestVolumeData(string memory url) public returns(bytes32)
     {
-
-        require(true, "requestDataCalled");
-        Chainlink.Request memory request = buildChainlinkRequest(jobId, address(this), this.fulfill.selector);
-        require(true, "buildChainLinkRequest done");
-        
-        //here we put the address of the api call. This can be used to get images.
-        request.add("get", "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=ETH&tsyms=USD");
-        
-       
-        request.add("path", "RAW.ETH.USD.VOLUME24HOUR");
-        
-        int timesAmount = 10**18;
-        request.addInt("times", timesAmount);
-        
-
-        //change the aggregator settings during deployment in infura
+        Chainlink.Request memory request = buildChainlinkRequest(stringToBytes32(jobId), address(this), this.fulfill.selector);
+        request.add("get", url);
+        request.add("path", "USD");
+        request.addInt("times", 100);
         return sendChainlinkRequestTo(oracle, request, fee);
     }
 
@@ -60,17 +35,25 @@ contract APIConsumer is ChainlinkClient {
     {
         volume = _volume;
     }
+    
+    function stringToBytes32(string memory source) private pure returns (bytes32 result) {
+    bytes memory tempEmptyStringTest = bytes(source);
+    if (tempEmptyStringTest.length == 0) {
+      return 0x0;
+    }
+    assembly { // solhint-disable-line no-inline-assembly
+      result := mload(add(source, 32))
+    }
+  }
 }
 
 contract SpecChain is APIConsumer{
     address public manager;
     string public name;
     string public content;
-    bytes32 data;
-    constructor() public {
-        data = requestVolumeData();
-    }
-    function getData() public{
-
+    bytes32 public data;
+    function getData() public returns (bytes32){
+        data = requestVolumeData("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD");
+        return data;
     }
 }

@@ -17,7 +17,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -30,7 +31,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -184,7 +186,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2597,
+                        "referencedDeclaration": 2588,
                         "src": "243:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -290,7 +292,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 2597,
+                        "referencedDeclaration": 2588,
                         "src": "309:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -888,7 +890,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 2597,
+                                  "referencedDeclaration": 2588,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -1026,7 +1028,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 2597,
+                                  "referencedDeclaration": 2588,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -1490,9 +1492,16 @@
     "name": "solc",
     "version": "0.6.0+commit.26b70077.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "4": {
+      "events": {},
+      "links": {},
+      "address": "0xdd675bEEAb679038cBdA9aB0ed15249F77811ac4",
+      "transactionHash": "0x71dcff78ea4ba284cb38b5bbb9b63551a5c19197c253c7274aa8d53a4f390475"
+    }
+  },
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-03-07T05:23:45.748Z",
+  "updatedAt": "2021-03-07T12:07:29.199Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

@@ -6,6 +6,7 @@ import { Link } from '../../routes';
 import Post from '../../ethereum/post';
 import EthUsd from '../../ethereum/ethUsd';
 import SpecTimeFactory from '../../ethereum/specTime';
+import SpecChainFactory from '../../ethereum/SpecChain';
 
 
 
@@ -14,13 +15,6 @@ class PostIndex extends Component {
   static async getInitialProps() {
     const spectrum = await Factory.methods.getDeployedPosts().call();
 
-    try{
-      const priceConsumerV3 = await EthUsd.methods.getLatestPrice().call();
-
-      console.log("Price Consumer V3", priceConsumerV3);
-    }catch(e){
-      console.log("error while creating PriceConsumerV3", e);
-    }
 
     try{
       const SpecTime = await SpecTimeFactory.methods.getPrice().call();
@@ -28,6 +22,14 @@ class PostIndex extends Component {
       console.log("SpecTime", SpecTime);
     }catch(e){
       console.log("error while creating SpecTime", e);
+    }
+
+    try{
+      const SpecChain = await SpecChainFactory.methods.getData().call();
+
+      console.log("SpecChain", SpecChain);
+    }catch(e){
+      console.log("error while creating SpecChain", e);
     }
 
 
