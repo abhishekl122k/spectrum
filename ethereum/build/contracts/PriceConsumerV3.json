@@ -57,7 +57,7 @@
         "id": 208,
         "nodeType": "ImportDirective",
         "scope": 266,
-        "sourceUnit": 1501,
+        "sourceUnit": 1492,
         "src": "27:76:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -87,7 +87,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_AggregatorV3Interface_$1500",
+              "typeIdentifier": "t_contract$_AggregatorV3Interface_$1491",
               "typeString": "contract AggregatorV3Interface"
             },
             "typeName": {
@@ -95,10 +95,10 @@
               "id": 209,
               "name": "AggregatorV3Interface",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1500,
+              "referencedDeclaration": 1491,
               "src": "141:21:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_AggregatorV3Interface_$1500",
+                "typeIdentifier": "t_contract$_AggregatorV3Interface_$1491",
                 "typeString": "contract AggregatorV3Interface"
               }
             },
@@ -128,7 +128,7 @@
                       "referencedDeclaration": 210,
                       "src": "224:9:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_AggregatorV3Interface_$1500",
+                        "typeIdentifier": "t_contract$_AggregatorV3Interface_$1491",
                         "typeString": "contract AggregatorV3Interface"
                       }
                     },
@@ -167,10 +167,10 @@
                         "name": "AggregatorV3Interface",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1500,
+                        "referencedDeclaration": 1491,
                         "src": "236:21:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_AggregatorV3Interface_$1500_$",
+                          "typeIdentifier": "t_type$_t_contract$_AggregatorV3Interface_$1491_$",
                           "typeString": "type(contract AggregatorV3Interface)"
                         }
                       },
@@ -185,13 +185,13 @@
                       "src": "236:65:2",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_AggregatorV3Interface_$1500",
+                        "typeIdentifier": "t_contract$_AggregatorV3Interface_$1491",
                         "typeString": "contract AggregatorV3Interface"
                       }
                     },
                     "src": "224:77:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_AggregatorV3Interface_$1500",
+                      "typeIdentifier": "t_contract$_AggregatorV3Interface_$1491",
                       "typeString": "contract AggregatorV3Interface"
                     }
                   },
@@ -393,7 +393,7 @@
                         "referencedDeclaration": 210,
                         "src": "635:9:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_AggregatorV3Interface_$1500",
+                          "typeIdentifier": "t_contract$_AggregatorV3Interface_$1491",
                           "typeString": "contract AggregatorV3Interface"
                         }
                       },
@@ -404,7 +404,7 @@
                       "lValueRequested": false,
                       "memberName": "latestRoundData",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1499,
+                      "referencedDeclaration": 1490,
                       "src": "635:25:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_view$__$returns$_t_uint80_$_t_int256_$_t_uint256_$_t_uint256_$_t_uint80_$",
@@ -788,7 +788,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 1501,
+          "SourceUnit": 1492,
           "absolutePath": "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol",
           "file": "@chainlink/contracts/src/v0.6/interfaces/AggregatorV3Interface.sol",
           "scope": 266,
@@ -837,7 +837,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "AggregatorV3Interface",
-                  "referencedDeclaration": 1500,
+                  "referencedDeclaration": 1491,
                   "type": "contract AggregatorV3Interface"
                 },
                 "id": 209,
@@ -944,7 +944,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1500,
+                                  "referencedDeclaration": 1491,
                                   "type": "type(contract AggregatorV3Interface)",
                                   "value": "AggregatorV3Interface"
                                 },
@@ -1234,7 +1234,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "latestRoundData",
-                              "referencedDeclaration": 1499,
+                              "referencedDeclaration": 1490,
                               "type": "function () view external returns (uint80,int256,uint256,uint256,uint80)"
                             },
                             "children": [
@@ -1615,7 +1615,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-03-08T06:32:12.263Z",
+  "updatedAt": "2021-03-08T06:51:47.696Z",
   "devdoc": {
     "methods": {}
   },

@@ -5,7 +5,7 @@ import SpecTime from './build/contracts/SpecTime.json';
 const instance = new web3.eth.Contract(
 	SpecTime.abi,
 	//address of SpecTime here
-	'0x6c8f22d3124d556dAFe5a2fCCb7d4D173011e7c7'
+	'0x526b7dF9784b4413315715BE7E1F31e773DAF481'
 	);
 
 console.log(instance);

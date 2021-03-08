@@ -7,8 +7,8 @@ contract Spectrum{
 
     address[] public deployedPosts;
     
-    function createPost(string memory content, string memory name, string memory thumbnail) public returns (address[] memory){
-        Post newPost = new Post(msg.sender, content, name, thumbnail);
+    function createPost(string memory content, string memory name) public returns (address[] memory){
+        Post newPost = new Post(msg.sender, content, name);
         deployedPosts.push(address(newPost));
         return deployedPosts;
     }
@@ -118,20 +118,19 @@ contract Post{
     }
 
     function getSummary() public view returns (
-        address, string memory name, string memory content, 
-        uint yayprice, uint nayprice, uint yaycount, uint naycount, bool completed, bool verdict, uint balanceRef, bytes32 thumbnail
+        address, string memory, string memory, 
+        uint, uint, uint, uint, bool, bool, uint, bytes32 
     ){
         return(address(this), name, content, yayprice, nayprice, yaycount, naycount, completed, verdict, balanceRef, thumbnail);
     }
     
     
-    constructor(address manager_init, string memory content_init, string memory name_init, string memory thumbnail_init) public {
+    constructor(address manager_init, string memory content_init, string memory name_init) public {
         name = name_init;
         manager = manager_init;
         tempAddress = manager;
         content = content_init;
         sc = new SpecChain();
-        updateThumbnail(thumbnail_init);
     	updateCost();
 	}
 }

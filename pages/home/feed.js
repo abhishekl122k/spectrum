@@ -53,7 +53,8 @@ class PostIndex extends Component {
         yaycount: post[5],
         naycount: post[6],
         completed: post[7],
-        verdict: post[8]
+        verdict: post[8],
+        
       })
     }
 
