@@ -7,7 +7,7 @@ import "@chainlink/contracts/src/v0.6/ChainlinkClient.sol";
 
 contract APIConsumer is ChainlinkClient {
   
-    uint256 public volume;
+    bytes32 volume;
     address private oracle;
     string private jobId;
     uint256 private fee;
@@ -31,7 +31,7 @@ contract APIConsumer is ChainlinkClient {
         return sendChainlinkRequestTo(oracle, request, fee);
     }
 
-    function fulfill(bytes32 _requestId, uint256 _volume) public recordChainlinkFulfillment(_requestId)
+    function fulfill(bytes32 _requestId, bytes32 _volume) public recordChainlinkFulfillment(_requestId)
     {
         volume = _volume;
     }
@@ -48,12 +48,11 @@ contract APIConsumer is ChainlinkClient {
 }
 
 contract SpecChain is APIConsumer{
-    address public manager;
-    string public name;
-    string public content;
-    bytes32 public data;
-    function getData() public returns (bytes32){
-        data = requestVolumeData("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD");
-        return data;
+    bytes32 data;
+    constructor(string memory url) public {
+        data = requestVolumeData(url);
+    }
+    function getData() public returns (bytes32) {
+      return data;
     }
 }

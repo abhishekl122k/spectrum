@@ -1,12 +1,14 @@
 pragma solidity ^0.6.0;
 
 
+import './SpecChain.sol';
+
 contract Spectrum{
 
     address[] public deployedPosts;
     
-    function createPost(string memory content, string memory name) public returns (address[] memory){
-        Post newPost = new Post(msg.sender, content, name);
+    function createPost(string memory content, string memory name, string memory thumbnail) public returns (address[] memory){
+        Post newPost = new Post(msg.sender, content, name, thumbnail);
         deployedPosts.push(address(newPost));
         return deployedPosts;
     }
@@ -37,6 +39,7 @@ contract Post{
     bool public verdict;
     uint public balanceRef = 0;
     uint public timeStamp;
+    bytes32 thumbnail;
 
     
     modifier active(){
@@ -108,16 +111,18 @@ contract Post{
         }       
     }
 
-    function getSummary() public view returns (address, string memory, string memory, uint, uint, uint, uint, bool, bool, uint){
-        return(address(this), name, content, yayprice, nayprice, yaycount, naycount, completed, verdict, balanceRef);
+    function getSummary() public view returns (address, string memory, string memory, uint, uint, uint, uint, bool, bool, uint, bytes32){
+        return(address(this), name, content, yayprice, nayprice, yaycount, naycount, completed, verdict, balanceRef, thumbnail);
     }
     
     
-    constructor(address manager_init, string memory content_init, string memory name_init) public {
+    constructor(address manager_init, string memory content_init, string memory name_init, string memory thumbnail_init) public {
         name = name_init;
         manager = manager_init;
         tempAddress = manager;
         content = content_init;
+        SpecChain sc = new SpecChain(thumbnail_init);
+        thumbnail = sc.getData();
     	updateCost();
 	}
     
