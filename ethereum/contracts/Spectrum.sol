@@ -76,49 +76,51 @@ contract Post{
     }
     
     function voteYay() public payable active{
+        if(yays[msg.sender]==0 && nays[msg.sender]==0){
+          	    voted.push(msg.sender);
     		
         if(msg.sender == tempAddress){
             verdict = true;
             complete();
-        }else{
-        	if(yays[msg.sender]==0 && nays[msg.sender]==0){
-          	    voted.push(msg.sender);
-        	}
-            require(msg.value>=yayprice);
-            require(yays[msg.sender]<=3);
+        }
+        require(msg.value>=yayprice);
+        require(yays[msg.sender]<=3);
 
-            yays[msg.sender]++;
-            yaycount++;
-            updateCost();
+        yays[msg.sender]++;
+        yaycount++;
+        updateCost();
         }       
     }
     
     function voteNay() public payable {
+
+        if(yays[msg.sender]==0 && nays[msg.sender]==0){
+          	    voted.push(msg.sender);
     	
       	 if(msg.sender==tempAddress){
             verdict = false;
             complete();
-        }else{
-        	if(yays[msg.sender]==0 && nays[msg.sender]==0){
-          	    voted.push(msg.sender);
-        	}
-            require(msg.value>=nayprice);
-            require(nays[msg.sender]<=3);
+        }
+        require(msg.value>=nayprice);
+        require(nays[msg.sender]<=3);
 
-            nays[msg.sender]++;
-            naycount++;
-            updateCost();
+        nays[msg.sender]++;
+        naycount++;
+        updateCost();
         }       
     }
 
+    //will cost LINK from contract. This is independent of the ETH stored in contract
+    //The manager can send LINK to contract if he wants to change thumbnail
     function updateThumbnail(string memory url) public active{
-        if(msg.sender == manager)
-        {
-            thumbnail = sc.getData(url);
-        }
+        require(msg.sender==manager);
+        thumbnail = sc.getData(url);
     }
 
-    function getSummary() public view returns (address, string memory, string memory, uint, uint, uint, uint, bool, bool, uint, bytes32){
+    function getSummary() public view returns (
+        address, string memory name, string memory content, 
+        uint yayprice, uint nayprice, uint yaycount, uint naycount, bool completed, bool verdict, uint balanceRef, bytes32 thumbnail
+    ){
         return(address(this), name, content, yayprice, nayprice, yaycount, naycount, completed, verdict, balanceRef, thumbnail);
     }
     
