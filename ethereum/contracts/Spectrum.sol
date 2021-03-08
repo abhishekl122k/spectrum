@@ -40,7 +40,7 @@ contract Post{
     uint public balanceRef = 0;
     uint public timeStamp;
     bytes32 thumbnail;
-
+    SpecChain sc;
     
     modifier active(){
     	require(!completed);
@@ -111,6 +111,13 @@ contract Post{
         }       
     }
 
+    function updateThumbnail(string memory url) public active{
+        if(msg.sender == manager)
+        {
+            thumbnail = sc.getData(url);
+        }
+    }
+
     function getSummary() public view returns (address, string memory, string memory, uint, uint, uint, uint, bool, bool, uint, bytes32){
         return(address(this), name, content, yayprice, nayprice, yaycount, naycount, completed, verdict, balanceRef, thumbnail);
     }
@@ -121,10 +128,8 @@ contract Post{
         manager = manager_init;
         tempAddress = manager;
         content = content_init;
-        SpecChain sc = new SpecChain(thumbnail_init);
-        thumbnail = sc.getData();
+        sc = new SpecChain();
+        updateThumbnail(thumbnail_init);
     	updateCost();
 	}
-    
-    
 }

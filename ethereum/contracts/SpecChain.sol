@@ -48,11 +48,9 @@ contract APIConsumer is ChainlinkClient {
 }
 
 contract SpecChain is APIConsumer{
-    bytes32 data;
-    constructor(string memory url) public {
-        data = requestVolumeData(url);
-    }
-    function getData() public returns (bytes32) {
-      return data;
-    }
+  bytes32 public data;
+  function getData(string memory url) public returns (bytes32) {
+    data = requestVolumeData(url);
+    return data;
+  }
 }
