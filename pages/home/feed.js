@@ -19,30 +19,29 @@ class PostIndex extends Component {
     try{
       const SpecTime = await SpecTimeFactory.methods.getPrice().call();
 
-      console.log("SpecTime", SpecTime);
     }catch(e){
       console.log("error while creating SpecTime", e);
     }
 
     try{
-      const SpecChain = await SpecChainFactory.methods.getData().call();
+      const SpecChain = await SpecChainFactory.methods.getData("https://www.random.org/integers/?num=10&min=1&max=6&col=1&base=10&format=plain&rnd=new").call();
 
-      console.log("SpecChain", SpecChain);
     }catch(e){
       console.log("error while creating SpecChain", e);
     }
 
 
-    console.log('hello');
-    console.log(spectrum);
-
     var posts = [];
 
-    for(var i = 0; i < spectrum.length; i=i+1){
-      
-      let post = await Post(spectrum[i]).methods.getSummary().call();
-      console.log('pool value:', post[9]);
-      console.log('posts pool \n\n', post);
+    for(var i = 0; i <= spectrum.length; i=i+1){
+      let post;
+      if(i==spectrum.length){
+        // await Post("0x1cfF6c42824f24cf458b14d3AAc83F9e5Bf5CEee").methods.updateThumbnail("https://www.random.org/integers/?num=10&min=1&max=6&col=1&base=10&format=plain&rnd=new").call();
+        post = await Post("0x1cfF6c42824f24cf458b14d3AAc83F9e5Bf5CEee").methods.getSummary().call();
+      }else{
+        post = await Post(spectrum[i]).methods.getSummary().call();
+      }
+
       posts.push({
         address: post[0],
         name: post[1],
@@ -54,10 +53,10 @@ class PostIndex extends Component {
         naycount: post[6],
         completed: post[7],
         verdict: post[8],
-        
-      })
-    }
-
+        thumbnail: post[9]
+      });
+      console.log('url', post[9]);
+  }
 
     //dummy data to illustrate
     posts.push({
