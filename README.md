@@ -1,5 +1,7 @@
+ _"A Multitude is a better judge of many things than any individual" - Aristotle_
 # SPECTRUM
 ##### _A Crypto-economic platform which acts as an information market which provides accurate news for users to both view and bet on._
+
 
 
 Members:
